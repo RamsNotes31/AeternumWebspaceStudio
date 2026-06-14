@@ -6,6 +6,7 @@ import {
   packages,
   painPoints,
   processSteps,
+  projects,
   services,
   stats,
   techStack,
@@ -198,33 +199,6 @@ function ServicesSection() {
 }
 
 function FeaturedWorkSection() {
-  const showcaseItems = [
-    {
-      title: "Jivara Health Website",
-      description: "Website jivara.web.id dirancang untuk memperkenalkan Jivara sebagai platform kesehatan yang membantu pasien tetap patuh minum obat.",
-      tone: "from-[#0F5132] via-[#15803D] to-[#D4AF37]",
-      label: "Healthcare Website",
-      image: "/assets/projects/jivara-home.png",
-      href: "https://jivara.web.id",
-    },
-    {
-      title: "SertiKu Certificate Platform",
-      description: "SertiKu adalah aplikasi untuk menerbitkan, mengelola, dan memverifikasi sertifikat digital dengan teknologi QR Code dan blockchain.",
-      tone: "from-[#0F172A] via-[#2563EB] to-[#8B5CF6]",
-      label: "Digital Certificate",
-      image: "/assets/projects/sertiku-home.png",
-      href: "https://sertiku.web.id",
-    },
-    {
-      title: "TuneBoss Indonesia Inventory",
-      description: "Aplikasi inventory internal distributor sparepart motor dengan Expo/React Native Web, TypeScript, Laravel 12, Sanctum, stok, produk, penjualan, laporan, audit log, export, dan PWA.",
-      tone: "from-[#080808] via-[#111111] to-[#F97316]",
-      label: "Inventory System",
-      image: "/assets/projects/tuneboss-inventory.png",
-      href: "/work/tuneboss-inventory-system",
-    },
-  ];
-
   const trustedBy = ["Jivara", "jivara.web.id", "AI Medication Reminder", "SertiKu", "sertiku.web.id", "QR Verification", "TuneBoss Indonesia", "Inventory Internal", "Laravel 12", "Expo Web", "PWA" ];
 
   return (
@@ -242,7 +216,7 @@ function FeaturedWorkSection() {
         </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {showcaseItems.map((item) => (
+          {projects.map((item) => (
             <article key={item.title} className="shine-card group overflow-hidden rounded-[2rem] border border-borderLight bg-white shadow-ambient transition duration-300 hover:-translate-y-1 hover:border-gold/45">
               <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${item.tone} p-3 text-white sm:h-64 md:h-72`}>
                 <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0_30%,rgba(255,255,255,0.16)_30.2%,transparent_30.8%_100%)] opacity-35" />
@@ -260,17 +234,10 @@ function FeaturedWorkSection() {
                 <span className="rounded-full bg-gold/12 px-3 py-1 text-xs font-semibold text-gold">{item.label}</span>
                 <h3 className="mt-5 font-display text-2xl font-semibold tracking-[-0.02em] text-navy">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slateText">{item.description}</p>
-                {item.href.startsWith("http") ? (
-                  <a href={item.href} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy transition hover:text-gold">
-                    Lihat website
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                ) : (
-                  <Link href={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy transition hover:text-gold">
-                    Lihat case study
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                )}
+                <Link href={item.detailHref} className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy transition hover:text-gold">
+                  Lihat case study
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </article>
           ))}

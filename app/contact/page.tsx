@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { MessageCircle } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
+import { ContactBriefForm } from "@/components/sections/contact-brief-form";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -29,6 +30,9 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
+      </section>
+      <section className="mx-auto mt-6 max-w-6xl">
+        <ContactBriefForm />
       </section>
     </PageHero>
   );
