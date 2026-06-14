@@ -58,10 +58,10 @@ function Hero() {
         <div className="mb-8 flex flex-wrap items-center gap-3">
           <span className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-white/8 px-4 py-2 text-sm text-white/75 backdrop-blur">
             <Sparkles className="h-4 w-4 text-gold" />
-            Studio website & sistem digital
+            Jasa Website Profesional
           </span>
           <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/55">
-            Untuk bisnis yang ingin terlihat siap dan bekerja lebih rapi
+            Website, landing page, dan sistem web untuk bisnis modern
           </span>
         </div>
 
@@ -71,10 +71,10 @@ function Hero() {
               Aeternum Webspace Studio
             </p>
             <h1 className="max-w-4xl font-display text-5xl font-bold leading-[1.02] tracking-[-0.055em] md:text-7xl">
-              Jasa pembuatan website yang rapi, modern, dan siap dipakai bisnis.
+              Jasa Pembuatan Website Profesional untuk Bisnis Anda.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/68">
-              Aeternum Webspace Studio membantu membuat website company profile, landing page, dashboard, dan sistem web internal. Alurnya jelas dari konsultasi, desain, development, sampai website online.
+              Kami membantu bisnis membangun website company profile, landing page, dan sistem web yang modern, responsif, dan mudah digunakan. Dari konsultasi awal sampai website siap online.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -89,7 +89,7 @@ function Hero() {
                 href="/work"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 px-6 font-semibold text-white transition hover:border-gold hover:text-gold"
               >
-                Lihat portfolio
+                Lihat Paket Website
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
@@ -100,7 +100,7 @@ function Hero() {
               <div className="mb-6 flex items-start justify-between gap-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Project Console</p>
-                  <p className="mt-2 font-display text-2xl font-semibold">Dari brief singkat ke website yang siap online.</p>
+                  <p className="mt-2 font-display text-2xl font-semibold">Solusi website modern, rapi, dan siap online.</p>
                 </div>
                 <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
                   Planned
@@ -122,7 +122,7 @@ function Hero() {
               </div>
 
               <div className="mt-5 rounded-2xl border border-gold/20 bg-gold/10 p-4 text-sm leading-6 text-white/75">
-                Cocok untuk bisnis yang ingin website terlihat profesional tanpa proses yang membingungkan.
+                Cocok untuk bisnis yang ingin memiliki website profesional dengan proses pengerjaan yang jelas.
               </div>
             </div>
           </div>
@@ -152,9 +152,9 @@ function PainPointSection() {
     <section className="px-4 py-24">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div>
-          <SectionEyebrow>Kenapa perlu dirapikan?</SectionEyebrow>
+          <SectionEyebrow>Solusi Digital untuk Bisnis</SectionEyebrow>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.035em] text-navy md:text-5xl">
-            Website yang baik membantu calon pelanggan lebih cepat paham.
+            Website yang tepat membantu bisnis terlihat lebih profesional.
           </h2>
         </div>
         <div className="grid gap-4">
@@ -173,7 +173,7 @@ function PainPointSection() {
 function ServicesSection() {
   return (
     <section className="bg-white px-4 py-24" id="services">
-      <SectionHeader eyebrow="Layanan" title="Pilih kebutuhan website sesuai tahap bisnis Anda." />
+      <SectionHeader eyebrow="Layanan Kami" title="Solusi website profesional untuk kebutuhan bisnis Anda." />
       <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2">
         {services.map((service) => {
           const Icon = service.icon;
@@ -275,7 +275,7 @@ function FeaturedWorkSection() {
 function ProcessSection() {
   return (
     <section className="syntax-gradient px-4 py-24 text-white" id="process">
-      <SectionHeader eyebrow="Proses" title="Proses pengerjaan dibuat jelas dari awal." dark />
+      <SectionHeader eyebrow="Alur Kerja" title="Proses pembuatan website yang jelas dan terarah." dark />
       <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-4">
         {processSteps.map((step, index) => (
           <article key={step.title} className="rounded-3xl border border-white/10 bg-white/8 p-6">
@@ -292,7 +292,7 @@ function ProcessSection() {
 function PricingSection() {
   return (
     <section className="bg-white px-4 py-24" id="pricing">
-      <SectionHeader eyebrow="Pricing" title="Paket awal untuk mulai membuat website." />
+      <SectionHeader eyebrow="Paket Website" title="Pilih paket website sesuai kebutuhan bisnis Anda." />
       <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-4">
         {packages.map((item) => {
           const featured = item.name === "Professional";
@@ -317,7 +317,7 @@ function PricingSection() {
         })}
       </div>
       <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-slateText">
-        Harga di atas adalah estimasi awal. Biaya final tetap menyesuaikan jumlah halaman, tingkat desain, fitur, form, integrasi, dan deadline.
+        Harga di atas adalah estimasi awal. Biaya final menyesuaikan jumlah halaman, tingkat desain, fitur, form, integrasi, dan deadline pengerjaan.
       </p>
     </section>
   );
@@ -326,7 +326,7 @@ function PricingSection() {
 function PrinciplesSection() {
   return (
     <section className="px-4 py-24">
-      <SectionHeader eyebrow="Standar kerja" title="Detail kecil yang membuat website terlihat lebih profesional." />
+      <SectionHeader eyebrow="Keunggulan" title="Mengapa memilih Aeternum Webspace Studio?" />
       <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {valueProps.map((item) => {
           const Icon = item.icon;
@@ -363,7 +363,7 @@ function TechSection() {
 function FaqSection() {
   return (
     <section className="bg-white px-4 py-24" id="faq">
-      <SectionHeader eyebrow="FAQ" title="Pertanyaan sebelum mulai project." />
+      <SectionHeader eyebrow="FAQ" title="Pertanyaan umum sebelum membuat website." />
       <div className="mx-auto mt-12 grid max-w-4xl gap-4">
         {faqs.map((item) => (
           <details key={item.question} className="group rounded-3xl border border-borderLight bg-background p-6 open:border-gold open:bg-white">
@@ -385,12 +385,12 @@ function FinalCta() {
       <div className="syntax-gradient mx-auto max-w-6xl rounded-[2rem] p-8 text-white shadow-ambient md:p-12">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">Mulai dari brief singkat</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">Siap Memiliki Website Profesional?</p>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.03em] md:text-5xl">
-              Ceritakan kebutuhan website Anda. Kami bantu susun scope dan estimasinya.
+              Konsultasikan kebutuhan website Anda bersama Aeternum.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-white/68">
-              Tidak perlu langsung lengkap. Cukup mulai dari jenis bisnis, tujuan website, contoh referensi, dan kisaran budget.
+              Sampaikan jenis bisnis, tujuan website, contoh referensi, dan kisaran budget. Kami bantu susun kebutuhan dan estimasi pengerjaannya.
             </p>
           </div>
           <a

@@ -30,30 +30,30 @@ export const trustItems = [
 
 export const stats = [
   { value: "1", label: "featured project: TuneBoss Inventory" },
-  { value: "End-to-end", label: "website, backend, database, deployment" },
-  { value: "Scope-first", label: "alur kerja dan biaya dibuat jelas" },
-  { value: "Deploy-ready", label: "siap rilis ke hosting pilihan" },
+  { value: "Modern", label: "desain website responsif dan profesional" },
+  { value: "Jelas", label: "harga, scope, dan timeline dibahas di awal" },
+  { value: "Siap Online", label: "dibantu sampai website siap digunakan" },
 ];
 
 export const services = [
   {
     title: "Website Company Profile",
-    description: "Website profil bisnis yang rapi, cepat, dan mudah dipahami calon pelanggan saat mereka mencari informasi tentang layanan Anda.",
+    description: "Jasa pembuatan website profil bisnis yang profesional untuk menampilkan layanan, keunggulan, portfolio, dan kontak perusahaan Anda.",
     icon: Globe2,
   },
   {
     title: "Landing Page Promosi",
-    description: "Halaman promosi untuk jasa, produk, campaign, atau iklan dengan pesan yang fokus dan tombol aksi yang jelas.",
+    description: "Landing page untuk promosi produk, jasa, campaign, atau iklan dengan struktur konten yang fokus pada konversi dan konsultasi.",
     icon: Rocket,
   },
   {
     title: "Web App Internal",
-    description: "Aplikasi berbasis web untuk membantu operasional seperti inventory, dashboard, laporan, approval, dan workflow internal.",
+    description: "Pembuatan aplikasi web internal untuk membantu bisnis mengelola inventory, dashboard, laporan, approval, dan workflow operasional.",
     icon: Layers3,
   },
   {
     title: "Backend API & Database",
-    description: "Backend, autentikasi, API, PostgreSQL, dan struktur data untuk project yang membutuhkan sistem yang lebih kuat dari website statis.",
+    description: "Pengembangan backend, API, autentikasi, database PostgreSQL, dan struktur data untuk website atau aplikasi yang membutuhkan sistem dinamis.",
     icon: Database,
   },
 ];
@@ -77,30 +77,30 @@ export const packages = [
   {
     name: "Starter",
     price: "Mulai Rp600K",
-    target: "Untuk landing page sederhana, profil jasa, atau halaman promosi satu halaman.",
+    target: "Cocok untuk halaman promosi, profil jasa, atau website satu halaman yang ingin cepat online.",
   },
   {
     name: "Business",
     price: "Mulai Rp1,5jt",
-    target: "Untuk website bisnis lebih lengkap dengan beberapa halaman, section layanan, portfolio, dan CTA WhatsApp.",
+    target: "Cocok untuk website bisnis dengan beberapa halaman, informasi layanan, portfolio, dan CTA WhatsApp.",
   },
   {
     name: "Professional",
     price: "Mulai Rp3jt+",
-    target: "Untuk website yang lebih serius dengan struktur konten matang, form, optimasi dasar, dan halaman yang lebih lengkap.",
+    target: "Cocok untuk website profesional dengan struktur konten matang, form, optimasi dasar, dan tampilan lebih premium.",
   },
   {
     name: "Custom System",
     price: "By scope",
-    target: "Untuk dashboard internal, inventory, backend custom, database, laporan, role user, dan deployment.",
+    target: "Cocok untuk kebutuhan aplikasi khusus seperti dashboard internal, inventory, backend custom, database, laporan, dan role user.",
   },
 ];
 
 export const processSteps = [
-  { title: "Konsultasi kebutuhan", description: "Kami mulai dari tujuan website, target pengunjung, referensi desain, dan fitur yang dibutuhkan." },
-  { title: "Struktur dan konten", description: "Halaman, alur baca, CTA, dan konten utama disusun agar website mudah dipahami." },
-  { title: "Desain dan development", description: "Tampilan dibuat responsif, lalu dikembangkan menjadi website yang siap digunakan." },
-  { title: "Review dan publish", description: "Website dicek bersama, direvisi sesuai scope, lalu dibantu sampai online." },
+  { title: "Konsultasi kebutuhan", description: "Kami pahami tujuan website, target pelanggan, referensi desain, fitur, dan budget awal." },
+  { title: "Penyusunan konsep", description: "Struktur halaman, alur konten, CTA, dan kebutuhan teknis disusun sebelum masuk development." },
+  { title: "Desain dan development", description: "Website dibuat responsif, modern, mudah digunakan, dan sesuai identitas bisnis Anda." },
+  { title: "Review dan publish", description: "Setelah dicek dan disesuaikan, website dibantu sampai siap online dan digunakan." },
 ];
 
 export const techStack = [
@@ -118,36 +118,36 @@ export const techStack = [
 
 export const faqs = [
   {
-    question: "Berapa lama pembuatan website?",
-    answer: "Landing page atau company profile sederhana biasanya 5-7 hari kerja setelah konten dan scope jelas. Website multi halaman atau sistem internal akan dihitung berdasarkan fitur.",
+    question: "Berapa lama proses pembuatan website?",
+    answer: "Landing page atau company profile sederhana biasanya 5-7 hari kerja setelah konten dan scope jelas. Website multi halaman atau sistem internal mengikuti jumlah fitur dan tingkat desain.",
   },
   {
-    question: "Apakah bisa membuat backend dan database?",
-    answer: "Bisa. Aeternum bisa menangani frontend, backend API, PostgreSQL, autentikasi, validasi data, sampai deployment.",
+    question: "Apakah bisa membuat website dengan backend dan database?",
+    answer: "Bisa. Aeternum dapat menangani frontend, backend API, database PostgreSQL, autentikasi, validasi data, hingga deployment.",
   },
   {
     question: "Apakah bisa membuat sistem inventory atau dashboard internal?",
     answer: "Bisa. TuneBoss Inventory System menjadi contoh awal untuk kebutuhan inventory internal, dashboard operasional, stok masuk/keluar, dan laporan dasar.",
   },
   {
-    question: "Apakah harga bisa disesuaikan dengan scope?",
-    answer: "Bisa. Kami lebih suka menentukan harga setelah scope jelas, supaya tidak terlalu murah di awal lalu banyak biaya tambahan di tengah jalan.",
+    question: "Apakah harga bisa disesuaikan dengan kebutuhan?",
+    answer: "Bisa. Harga akan menyesuaikan jumlah halaman, fitur, desain, kebutuhan backend, deadline, dan tingkat kompleksitas project.",
   },
 ];
 
 export const valueProps = [
-  { title: "Tidak langsung coding sebelum scope jelas", icon: FileText },
-  { title: "Bisa handle UI, API, database", icon: ServerCog },
-  { title: "Timeline dan output dibuat terukur", icon: CheckCircle2 },
-  { title: "Struktur siap dikembangkan lagi", icon: Sparkles },
-  { title: "Validasi dan keamanan dasar diperhatikan", icon: ShieldCheck },
-  { title: "Bahasa teknis diterjemahkan ke kebutuhan bisnis", icon: BarChart3 },
+  { title: "Desain modern dan responsif", icon: FileText },
+  { title: "Bisa website, backend, dan database", icon: ServerCog },
+  { title: "Harga dan output dibahas di awal", icon: CheckCircle2 },
+  { title: "Struktur siap dikembangkan", icon: Sparkles },
+  { title: "Keamanan dasar diperhatikan", icon: ShieldCheck },
+  { title: "Fokus pada kebutuhan bisnis", icon: BarChart3 },
   { title: "Cocok untuk sistem custom", icon: Boxes },
-  { title: "Kode dibuat bersih dan mudah dirawat", icon: Code2 },
+  { title: "Kode rapi dan mudah dirawat", icon: Code2 },
 ];
 
 export const painPoints = [
-  "Bisnis sudah berjalan, tapi belum punya website yang terlihat profesional.",
-  "Calon pelanggan sering bertanya hal yang sama karena informasi layanan belum tersusun rapi.",
-  "Butuh website yang bisa jadi pusat informasi, promosi, dan pintu masuk konsultasi.",
+  "Bisnis sudah berjalan, tetapi belum memiliki website yang terlihat profesional dan meyakinkan.",
+  "Informasi layanan masih tersebar di chat, katalog, atau media sosial sehingga calon pelanggan sulit memahami penawaran Anda.",
+  "Anda membutuhkan website yang bisa menjadi pusat informasi, promosi, dan pintu masuk konsultasi pelanggan.",
 ];
