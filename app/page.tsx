@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, MessageCircle, Minus } from "lucide-react";
 import {
@@ -199,26 +200,24 @@ function ServicesSection() {
 function FeaturedWorkSection() {
   const showcaseItems = [
     {
-      title: "Website Company Profile",
-      description: "Tampilan profesional untuk memperkenalkan layanan, keunggulan, portfolio, dan kontak bisnis secara rapi.",
-      tone: "from-[#111C2D] via-[#1B2942] to-[#D4AF37]",
-      label: "Business Website",
+      title: "Jivara Health Website",
+      description: "Website jivara.web.id dirancang untuk memperkenalkan Jivara sebagai platform kesehatan yang membantu pasien tetap patuh minum obat.",
+      tone: "from-[#0F5132] via-[#15803D] to-[#D4AF37]",
+      label: "Healthcare Website",
+      image: "/assets/projects/jivara-home.png",
+      href: "https://jivara.web.id",
     },
     {
-      title: "Landing Page Promosi",
-      description: "Halaman promosi dengan alur baca yang fokus, headline kuat, dan CTA WhatsApp yang mudah ditemukan.",
-      tone: "from-[#0F172A] via-[#263449] to-[#F8FAFC]",
-      label: "Campaign Page",
-    },
-    {
-      title: "Dashboard Internal",
-      description: "Konsep sistem internal untuk mengelola data, laporan, aktivitas, dan kebutuhan operasional bisnis.",
-      tone: "from-[#131B2E] via-[#334155] to-[#D4AF37]",
-      label: "Web App",
+      title: "SertiKu Certificate Platform",
+      description: "SertiKu adalah aplikasi untuk menerbitkan, mengelola, dan memverifikasi sertifikat digital dengan teknologi QR Code dan blockchain.",
+      tone: "from-[#0F172A] via-[#2563EB] to-[#8B5CF6]",
+      label: "Digital Certificate",
+      image: "/assets/projects/sertiku-home.png",
+      href: "https://sertiku.web.id",
     },
   ];
 
-  const trustedBy = ["Nusantara Motor", "Karya Studio", "LocalMart", "Sagara Coffee", "Prima Edu", "Astra Digital" ];
+  const trustedBy = ["Jivara", "jivara.web.id", "AI Medication Reminder", "Food Interaction Check", "SertiKu", "sertiku.web.id", "QR Verification", "Blockchain Certificate" ];
 
   return (
     <section className="relative px-4 py-24" id="work">
@@ -227,40 +226,30 @@ function FeaturedWorkSection() {
         <div>
           <SectionEyebrow>Contoh Tampilan</SectionEyebrow>
           <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-[-0.035em] text-navy md:text-5xl">
-            Hasil tampilan website yang Aeternum siapkan untuk bisnis Anda.
+            Hasil kerja Aeternum untuk project Jivara.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slateText">
-            Setiap project kami arahkan agar terlihat profesional, mudah dipahami calon pelanggan, dan punya alur konsultasi yang jelas. Tampilan berikut menjadi contoh gaya output yang dapat kami sesuaikan dengan identitas brand Anda.
+            Dari Jivara sampai SertiKu, Aeternum membantu menyusun website dan aplikasi web yang menjelaskan manfaat produk digital secara jelas, profesional, dan mudah dipercaya pengguna.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {showcaseItems.map((item) => (
             <article key={item.title} className="shine-card group overflow-hidden rounded-[2rem] border border-borderLight bg-white shadow-ambient transition duration-300 hover:-translate-y-1 hover:border-gold/45">
-              <div className={`relative h-56 bg-gradient-to-br ${item.tone} p-5 text-white`}>
-                <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0_30%,rgba(255,255,255,0.16)_30.2%,transparent_30.8%_100%)] opacity-50" />
-                <div className="relative rounded-2xl border border-white/20 bg-white/12 p-4 backdrop-blur-sm transition duration-300 group-hover:-translate-y-1">
-                  <div className="mb-5 flex items-center gap-2">
-                    <span className="h-2.5 w-2.5 rounded-full bg-red-200" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-yellow-200" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-200" />
-                  </div>
-                  <div className="space-y-3">
-                    <div className="h-4 w-3/4 rounded-full bg-white/80" />
-                    <div className="h-3 w-5/6 rounded-full bg-white/45" />
-                    <div className="h-3 w-2/3 rounded-full bg-white/35" />
-                  </div>
-                  <div className="mt-7 grid grid-cols-3 gap-2">
-                    <div className="h-14 rounded-xl bg-white/22" />
-                    <div className="h-14 rounded-xl bg-white/18" />
-                    <div className="h-14 rounded-xl bg-white/14" />
-                  </div>
+              <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${item.tone} p-3 text-white md:h-72`}>
+                <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0_30%,rgba(255,255,255,0.16)_30.2%,transparent_30.8%_100%)] opacity-35" />
+                <div className="relative h-full overflow-hidden rounded-[1.35rem] border border-white/20 bg-white shadow-ambient transition duration-300 group-hover:scale-[1.02]">
+                  <Image src={item.image} alt={`${item.title} website screenshot`} fill sizes="(min-width: 1024px) 560px, 100vw" className="object-cover object-top" />
                 </div>
               </div>
               <div className="p-6">
                 <span className="rounded-full bg-gold/12 px-3 py-1 text-xs font-semibold text-gold">{item.label}</span>
                 <h3 className="mt-5 font-display text-2xl font-semibold tracking-[-0.02em] text-navy">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slateText">{item.description}</p>
+                <a href={item.href} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy transition hover:text-gold">
+                  Lihat website
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </article>
           ))}
@@ -269,13 +258,19 @@ function FeaturedWorkSection() {
         <div className="mt-16 rounded-[2rem] border border-borderLight bg-white/90 p-6 shadow-ambient backdrop-blur md:p-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">Arah project Aeternum</p>
-              <h3 className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-navy">Website yang kami bangun dirancang untuk membantu brand terlihat lebih siap, rapi, dan meyakinkan.</h3>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">Project Aeternum</p>
+              <h3 className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-navy">Kami membantu Jivara dan SertiKu menampilkan nilai produknya: AI kesehatan, QR verification, dan sertifikat digital berbasis blockchain.</h3>
             </div>
-            <a href={getWhatsAppUrl()} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-borderLight px-5 text-sm font-semibold text-navy transition hover:border-gold hover:text-gold">
-              Konsultasi Website
-              <ArrowRight className="h-4 w-4" />
-            </a>
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <a href="https://jivara.web.id" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-borderLight px-5 text-sm font-semibold text-navy transition hover:border-gold hover:text-gold">
+                Jivara
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="https://sertiku.web.id" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-borderLight px-5 text-sm font-semibold text-navy transition hover:border-gold hover:text-gold">
+                SertiKu
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
           <div className="mt-8 overflow-hidden rounded-2xl border border-borderLight bg-background/80 p-3">
             <div className="walking-marquee flex gap-3">
