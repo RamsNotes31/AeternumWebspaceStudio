@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, MessageCircle, Minus } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle, Minus, Star } from "lucide-react";
 import {
   faqs,
   packages,
@@ -305,11 +305,16 @@ function ProcessSection() {
 function TestimonialsSection() {
   return (
     <section className="white-gold-lines bg-white px-4 py-24">
-      <SectionHeader eyebrow="Social Proof" title="Project yang dibangun untuk menjelaskan produk digital dengan lebih meyakinkan." />
+      <SectionHeader eyebrow="Client Rating" title="Klien memberi kepercayaan tinggi untuk website dan sistem digital yang dibangun Aeternum." />
       <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-3">
         {testimonials.map((item) => (
           <article key={item.project} className="shine-card rounded-[2rem] border border-borderLight bg-background p-6 shadow-ambient transition hover:-translate-y-1 hover:border-gold/45 hover:bg-white">
-            <p className="font-display text-4xl font-bold text-gold">“</p>
+            <div className="flex items-center gap-2 text-gold">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <Star key={index} className="h-5 w-5 fill-current" />
+              ))}
+              <span className="ml-2 text-sm font-bold text-navy">5.0</span>
+            </div>
             <p className="mt-2 text-sm leading-7 text-slateText">{item.quote}</p>
             <div className="mt-6 border-t border-borderLight pt-4">
               <p className="font-display text-lg font-bold text-navy">{item.project}</p>
