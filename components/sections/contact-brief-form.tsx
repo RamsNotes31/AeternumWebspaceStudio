@@ -36,6 +36,10 @@ export function ContactBriefForm() {
         return;
       }
 
+      if (!data.whatsappUrl) {
+        return;
+      }
+
       window.open(data.whatsappUrl, "_blank", "noopener,noreferrer");
     } catch {
       setError("Koneksi bermasalah. Silakan coba lagi atau gunakan tombol WhatsApp langsung.");
@@ -47,6 +51,12 @@ export function ContactBriefForm() {
   return (
     <form onSubmit={handleSubmit} className="rounded-[2rem] border border-borderLight bg-white p-7 shadow-ambient">
       <p className="text-sm font-bold uppercase tracking-[0.22em] text-gold">Form brief cepat</p>
+      <div aria-hidden="true" className="pointer-events-none absolute h-0 w-0 overflow-hidden opacity-0">
+        <label>
+          Website
+          <input name="website" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {fields.map((field) => (
           <label key={field.name} className="grid gap-2 text-sm font-semibold text-navy">

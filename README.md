@@ -101,9 +101,12 @@ Available variables:
 ```text
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_WHATSAPP_NUMBER=6289697100997
+INQUIRY_WEBHOOK_URL=
 ```
 
 `NEXT_PUBLIC_WHATSAPP_NUMBER` is used by all WhatsApp CTA links. Use international format without `+`.
+`INQUIRY_WEBHOOK_URL` is optional. When set, `POST /api/inquiries` forwards validated brief data to an external webhook such as Google Apps Script, Make, Zapier, Airtable, or a CRM.
+The inquiry endpoint includes a hidden honeypot field and a small in-memory rate limit to reduce low-effort spam.
 
 ## Project Structure
 
@@ -145,7 +148,7 @@ public/
 
 ## Next Steps
 
-- Persist inquiries to a database or external CRM.
+- Connect `INQUIRY_WEBHOOK_URL` to Google Sheets, Airtable, Make, Zapier, or a CRM for persistent inquiry storage.
 - Add database and admin dashboard in a later phase.
 - Replace disabled social icons in the footer with official Aeternum social media links.
 - Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_WHATSAPP_NUMBER` in Vercel project settings before production deployment.
