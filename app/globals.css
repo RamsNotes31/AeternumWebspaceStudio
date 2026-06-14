@@ -38,6 +38,14 @@ a {
   text-decoration: none;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 ::selection {
   background: rgba(79, 70, 229, 0.22);
   color: var(--navy);

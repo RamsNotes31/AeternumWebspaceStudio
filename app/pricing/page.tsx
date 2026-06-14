@@ -15,7 +15,9 @@ export default function PricingPage() {
           const featured = item.name === "Professional";
           return (
             <article key={item.name} className={`gold-corner-lines shine-card relative rounded-3xl border bg-white p-6 shadow-ambient ${featured ? "border-gold ring-4 ring-gold/10" : "border-borderLight"}`}>
-              {featured ? <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold px-4 py-1.5 text-xs font-bold text-navy shadow-gold">Recommended</span> : null}
+              <div className="mb-5 flex h-7 items-center justify-center">
+                {featured ? <span className="rounded-full bg-gold px-4 py-1.5 text-xs font-bold text-navy shadow-gold">Recommended</span> : null}
+              </div>
               <h2 className="font-display text-xl font-bold text-navy">{item.name}</h2>
               <p className="mt-5 font-display text-2xl font-bold text-ink">{item.price}</p>
               <p className="mt-4 text-sm leading-7 text-slateText">{item.target}</p>

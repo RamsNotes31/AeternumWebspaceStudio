@@ -1,11 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { navItems } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const services = ["Company Profile", "Landing Page", "Web App", "Backend & Database"];
 const packages = ["Starter mulai Rp600K", "Business mulai Rp1,5jt", "Professional mulai Rp3jt+"];
+const socials = [
+  { label: "Instagram", href: "https://instagram.com/aeternum.studio", icon: Instagram },
+  { label: "Facebook", href: "https://facebook.com/aeternum.studio", icon: Facebook },
+  { label: "LinkedIn", href: "https://linkedin.com/company/aeternum-studio", icon: Linkedin },
+];
 
 export function Footer() {
   return (
@@ -72,6 +77,23 @@ export function Footer() {
               <Mail className="h-4 w-4" />
               hello@aeternum.studio
             </a>
+            <div className="mt-3 flex items-center gap-2 px-3">
+              {socials.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={item.label}
+                    className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-white/70 transition hover:-translate-y-0.5 hover:border-gold hover:text-gold"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                );
+              })}
+            </div>
           </FooterCard>
         </div>
 

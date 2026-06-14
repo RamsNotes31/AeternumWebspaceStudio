@@ -315,7 +315,7 @@ function PricingSection() {
   return (
     <section className="white-gold-lines bg-white px-4 py-24" id="pricing">
       <SectionHeader eyebrow="Paket Website" title="Pilih paket website sesuai kebutuhan bisnis Anda." />
-      <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto mt-16 grid max-w-6xl gap-7 md:grid-cols-2 lg:grid-cols-4">
         {packages.map((item) => {
           const featured = item.name === "Professional";
 
@@ -326,11 +326,13 @@ function PricingSection() {
                 featured ? "border-gold ring-4 ring-gold/10" : "border-borderLight hover:border-gold/40"
               }`}
             >
-              {featured ? (
-                <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold bg-gold px-4 py-1.5 text-xs font-bold text-navy shadow-gold">
-                  Recommended
-                </span>
-              ) : null}
+              <div className="mb-5 flex h-7 items-center justify-center">
+                {featured ? (
+                  <span className="rounded-full border border-gold bg-gold px-4 py-1.5 text-xs font-bold text-navy shadow-gold">
+                    Recommended
+                  </span>
+                ) : null}
+              </div>
               <h3 className="font-display text-xl font-semibold text-navy">{item.name}</h3>
               <p className="mt-5 font-display text-2xl font-bold text-ink">{item.price}</p>
               <p className="mt-4 text-sm leading-7 text-slateText">{item.target}</p>
