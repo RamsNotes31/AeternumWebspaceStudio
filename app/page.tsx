@@ -95,49 +95,68 @@ function Hero() {
           </div>
 
           <div className="gold-corner-lines rounded-[2rem] border border-white/12 bg-white/8 p-4 shadow-ambient backdrop-blur-xl md:p-6">
-            <div className="rounded-[1.5rem] border border-white/10 bg-midnight/85 p-5">
-              <div className="mb-6 flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Website Plan</p>
-                  <p className="mt-2 font-display text-2xl font-semibold">Dari konsultasi singkat ke website yang siap dipakai.</p>
+            <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0D1424]">
+              <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-300/80" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-300/80" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-300/80" />
                 </div>
                 <span className="rounded-full bg-gold/10 px-3 py-1 text-xs font-semibold text-gold">
-                  MVP Ready
+                  Website Preview
                 </span>
               </div>
 
-              <div className="grid gap-3">
-                {[
-                  ["01", "Konsultasi", "Tujuan website, referensi, dan kebutuhan utama."],
-                  ["02", "Rancangan", "Struktur halaman, copy utama, dan CTA dibuat jelas."],
-                  ["03", "Publish", "Website responsif, siap online, dan mudah dibagikan."],
-                ].map(([number, title, description]) => (
-                  <div key={title} className="grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-                    <span className="grid h-10 w-10 place-items-center rounded-full bg-gold text-sm font-bold text-navy">
-                      {number}
-                    </span>
+              <div className="p-5">
+                <div className="rounded-[1.25rem] bg-white p-5 text-navy shadow-ambient">
+                  <div className="mb-5 flex items-center justify-between gap-4">
                     <div>
-                      <div className="mb-1 flex items-center justify-between gap-3">
-                        <p className="font-display text-base font-semibold text-white">{title}</p>
-                        <CheckCircle2 className="h-4 w-4 shrink-0 text-gold" />
-                      </div>
-                      <p className="text-sm leading-6 text-white/58">{description}</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Company Website</p>
+                      <h3 className="mt-2 font-display text-2xl font-bold tracking-[-0.03em]">Bisnis Anda</h3>
                     </div>
+                    <span className="rounded-full bg-navy px-3 py-1 text-xs font-semibold text-white">Online</span>
                   </div>
-                ))}
-              </div>
 
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                {[
-                  ["Mulai", "Rp600K"],
-                  ["Durasi", "5-7 hari"],
-                  ["CTA", "WhatsApp"],
-                ].map(([label, value]) => (
-                  <div key={label} className="rounded-2xl border border-gold/15 bg-gold/10 p-4">
-                    <p className="text-xs uppercase tracking-[0.18em] text-white/45">{label}</p>
-                    <p className="mt-2 font-display text-lg font-bold text-gold">{value}</p>
+                  <div className="space-y-3">
+                    <div className="h-3 w-4/5 rounded-full bg-slate-200" />
+                    <div className="h-3 w-2/3 rounded-full bg-slate-200" />
+                    <div className="h-3 w-1/2 rounded-full bg-slate-200" />
                   </div>
-                ))}
+
+                  <div className="mt-6 grid grid-cols-3 gap-3">
+                    {[
+                      ["Hero", "CTA"],
+                      ["Service", "4"],
+                      ["Lead", "WA"],
+                    ].map(([label, value]) => (
+                      <div key={label} className="rounded-2xl border border-borderLight bg-background p-3">
+                        <p className="text-[10px] uppercase tracking-[0.16em] text-slateText">{label}</p>
+                        <p className="mt-1 font-display text-lg font-bold text-navy">{value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-4 grid gap-3">
+                  {[
+                    "Struktur halaman dan copy utama",
+                    "Desain responsif desktop dan mobile",
+                    "CTA WhatsApp dan optimasi dasar",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white/72">
+                      <span>{item}</span>
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-gold" />
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-4 flex items-end justify-between rounded-2xl border border-gold/20 bg-gold/10 p-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.18em] text-white/45">Paket mulai</p>
+                    <p className="mt-1 font-display text-2xl font-bold text-gold">Rp600K</p>
+                  </div>
+                  <p className="text-right text-sm leading-6 text-white/62">Estimasi awal setelah kebutuhan jelas.</p>
+                </div>
               </div>
             </div>
           </div>
