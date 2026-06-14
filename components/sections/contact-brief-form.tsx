@@ -1,8 +1,7 @@
 "use client";
 
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { MessageCircle } from "lucide-react";
-import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const fields = [
   { name: "name", label: "Nama", placeholder: "Nama Anda" },
@@ -13,18 +12,36 @@ const fields = [
 ];
 
 export function ContactBriefForm() {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const message = `Halo Aeternum, saya ingin konsultasi project website/sistem digital.
-Nama: ${formData.get("name") || "-"}
-Bisnis: ${formData.get("business") || "-"}
-Jenis project: ${formData.get("project") || "-"}
-Budget: ${formData.get("budget") || "-"}
-Deadline: ${formData.get("deadline") || "-"}
-Kebutuhan: ${formData.get("message") || "-"}`;
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    window.open(getWhatsAppUrl(message), "_blank", "noopener,noreferrer");
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setError("");
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Brief belum bisa dikirim. Coba cek data Anda.");
+        return;
+      }
+
+      window.open(data.whatsappUrl, "_blank", "noopener,noreferrer");
+    } catch {
+      setError("Koneksi bermasalah. Silakan coba lagi atau gunakan tombol WhatsApp langsung.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -37,6 +54,7 @@ Kebutuhan: ${formData.get("message") || "-"}`;
             <input
               name={field.name}
               placeholder={field.placeholder}
+              required={["name", "business", "project"].includes(field.name)}
               className="min-h-12 rounded-2xl border border-borderLight bg-background px-4 text-sm font-medium text-ink outline-none transition focus:border-gold focus:bg-white"
             />
           </label>
@@ -51,9 +69,10 @@ Kebutuhan: ${formData.get("message") || "-"}`;
           />
         </label>
       </div>
-      <button type="submit" className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-gold px-5 font-bold text-navy transition hover:-translate-y-0.5 hover:shadow-gold">
+      {error ? <p className="mt-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">{error}</p> : null}
+      <button type="submit" disabled={isSubmitting} className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-gold px-5 font-bold text-navy transition hover:-translate-y-0.5 hover:shadow-gold disabled:cursor-not-allowed disabled:opacity-60">
         <MessageCircle className="h-5 w-5" />
-        Kirim brief via WhatsApp
+        {isSubmitting ? "Menyiapkan pesan..." : "Kirim brief via WhatsApp"}
       </button>
     </form>
   );

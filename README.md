@@ -19,11 +19,17 @@ The current implementation is a static frontend MVP built from the project PRD, 
 |---|---|
 | `/` | Landing page |
 | `/services` | Services page for website, landing page, web app, backend, database, and deployment offers |
-| `/work` | Portfolio and featured case study overview |
+| `/work` | Portfolio grid and featured project overview |
+| `/work/jivara` | Jivara health website case study |
+| `/work/sertiku` | SertiKu certificate platform case study |
 | `/work/tuneboss-inventory-system` | TuneBoss inventory system case study |
 | `/pricing` | Pricing package estimates and WhatsApp consultation CTAs |
 | `/about` | Studio positioning, working principles, and brand story |
 | `/contact` | WhatsApp consultation page and project brief checklist |
+| `/privacy` | Privacy policy for inquiry and consultation data |
+| `/api/inquiries` | Inquiry route handler that validates brief data and returns a WhatsApp URL |
+| `/sitemap.xml` | Generated SEO sitemap |
+| `/robots.txt` | Generated crawler rules |
 
 ## Current Features
 
@@ -32,16 +38,20 @@ The current implementation is a static frontend MVP built from the project PRD, 
 - Cyber gold hero section with animated studio visuals
 - Trust/stat strip
 - Full service pages and service preview
-- TuneBoss featured project showcase and case study page
+- Portfolio project screenshots for Jivara, SertiKu, and TuneBoss
+- Jivara, SertiKu, and TuneBoss case study pages
 - Pricing preview/page with recommended package state
 - Process timeline
 - Tech ecosystem strip
 - FAQ section
 - Final WhatsApp CTA
 - Mobile sticky WhatsApp CTA
+- Contact brief form that opens a prefilled WhatsApp message
+- Inquiry API route with basic validation for contact briefs
+- Privacy policy page for inquiry data usage
 - Responsive mobile navigation
 - Footer social links
-- Per-page SEO metadata and generated Open Graph image
+- Per-page SEO metadata, structured data, sitemap, robots, and generated Open Graph image
 
 ## Getting Started
 
@@ -96,15 +106,21 @@ NEXT_PUBLIC_WHATSAPP_NUMBER=6289697100997
 
 ```text
 app/
+  api/inquiries/route.ts
   page.tsx
   layout.tsx
   globals.css
   services/page.tsx
   work/page.tsx
+  work/jivara/page.tsx
+  work/sertiku/page.tsx
   work/tuneboss-inventory-system/page.tsx
   pricing/page.tsx
   about/page.tsx
   contact/page.tsx
+  privacy/page.tsx
+  sitemap.ts
+  robots.ts
 components/
   layout/
   sections/
@@ -114,19 +130,19 @@ lib/
   whatsapp.ts
 public/
   assets/logo/
+  assets/projects/
 ```
 
 ## Notes
 
 - This repository only contains frontend/backend source-ready project files.
 - Local planning documents, raw assets, scraping files, and proposal documents are intentionally ignored from Git.
-- The TuneBoss project is used as the first featured project showcase. Contract details and pricing are not included in the public site.
+- Jivara, SertiKu, and TuneBoss are shown as public project examples. Contract details and pricing are not included in the public site.
 - Public documentation is kept concise so the repository remains easy to review from GitHub.
 
 ## Next Steps
 
-- Add contact form handling.
-- Add backend route handlers for inquiries.
+- Persist inquiries to a database or external CRM.
 - Add database and admin dashboard in a later phase.
 - Replace placeholder social URLs in the footer with official Aeternum social media links.
 - Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_WHATSAPP_NUMBER` in Vercel project settings before production deployment.

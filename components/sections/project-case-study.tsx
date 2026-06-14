@@ -42,6 +42,18 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
           ))}
         </div>
       </div>
+      <div className="mt-6 grid gap-5 md:grid-cols-3">
+        {[
+          ["Problem", project.caseStudy.problem],
+          ["Solution", project.caseStudy.solution],
+          ["Outcome", project.caseStudy.outcome],
+        ].map(([title, description]) => (
+          <article key={title} className="shine-card rounded-3xl border border-borderLight bg-white p-6 shadow-ambient">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-gold">{title}</p>
+            <p className="mt-4 text-sm leading-7 text-slateText">{description}</p>
+          </article>
+        ))}
+      </div>
     </section>
   );
 }

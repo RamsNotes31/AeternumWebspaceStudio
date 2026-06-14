@@ -159,12 +159,17 @@ export const projects = [
     label: "Healthcare Website",
     href: "https://jivara.web.id",
     detailHref: "/work/jivara",
-    image: "/assets/projects/jivara-home.png",
+    image: "/assets/projects/jivara-home.jpg",
     tone: "from-[#0F5132] via-[#15803D] to-[#D4AF37]",
     summary: "Website kesehatan untuk memperkenalkan Jivara sebagai platform yang membantu pasien patuh minum obat.",
     description: "Jivara membantu pasien patuh minum obat dan mendeteksi interaksi berbahaya dengan makanan menggunakan teknologi AI.",
     stack: ["Healthcare website", "AI feature messaging", "Responsive landing page", "Product education"],
     highlights: ["Positioning produk kesehatan", "Hero dan CTA jelas", "Alur fitur mudah dipahami", "Tampilan clean dan trusted"],
+    caseStudy: {
+      problem: "Produk kesehatan berbasis AI perlu dijelaskan dengan bahasa yang mudah dipahami pasien, bukan hanya istilah teknis.",
+      solution: "Website diarahkan untuk menonjolkan manfaat utama: pengingat minum obat, edukasi interaksi makanan, dan rasa aman untuk pengguna.",
+      outcome: "Jivara tampil lebih jelas sebagai produk digital kesehatan yang ramah pengguna dan punya value proposition yang mudah ditangkap.",
+    },
   },
   {
     title: "SertiKu Certificate Platform",
@@ -172,12 +177,17 @@ export const projects = [
     label: "Digital Certificate",
     href: "https://sertiku.web.id",
     detailHref: "/work/sertiku",
-    image: "/assets/projects/sertiku-home.png",
+    image: "/assets/projects/sertiku-home.jpg",
     tone: "from-[#0F172A] via-[#2563EB] to-[#8B5CF6]",
     summary: "Platform sertifikat digital dengan penerbitan, pengelolaan, dan verifikasi berbasis QR Code dan blockchain.",
     description: "SertiKu adalah aplikasi untuk menerbitkan, mengelola, dan memverifikasi sertifikat digital dengan teknologi QR Code dan blockchain.",
     stack: ["Certificate platform", "QR verification", "Blockchain messaging", "SaaS landing page"],
     highlights: ["Value proposition jelas", "Visual dark-tech", "CTA masuk dan verifikasi", "Stat dan trust signal"],
+    caseStudy: {
+      problem: "Layanan sertifikat digital membutuhkan penjelasan yang meyakinkan tentang verifikasi, keamanan, dan kemudahan penggunaan.",
+      solution: "Landing page disusun dengan fokus pada verifikasi QR Code, blockchain, CTA masuk, dan visual dark-tech yang memberi kesan aman.",
+      outcome: "SertiKu terlihat sebagai platform sertifikat digital yang modern, terpercaya, dan mudah digunakan oleh penerbit maupun penerima sertifikat.",
+    },
   },
   {
     title: "TuneBoss Indonesia Inventory",
@@ -191,5 +201,10 @@ export const projects = [
     description: "Frontend memakai Expo/React Native Web + TypeScript, backend memakai Laravel 12 + Sanctum untuk login admin/staff, stok, produk, penjualan, laporan, audit log, export, dan PWA.",
     stack: ["Expo / React Native Web", "TypeScript", "Laravel 12", "Sanctum", "PWA"],
     highlights: ["Login admin/staff", "Manajemen stok dan produk", "Penjualan dan laporan", "Audit log dan export"],
+    caseStudy: {
+      problem: "Distributor sparepart motor membutuhkan sistem internal untuk mengelola kategori, produk, stok, penjualan, dan laporan secara lebih rapi.",
+      solution: "Aplikasi inventory dibangun dengan frontend Expo/React Native Web dan backend Laravel 12 + Sanctum untuk workflow admin/staff.",
+      outcome: "TuneBoss memiliki fondasi inventory internal yang siap dipakai sebagai PWA dan dapat dikembangkan ke audit, export, dan laporan operasional.",
+    },
   },
 ];
