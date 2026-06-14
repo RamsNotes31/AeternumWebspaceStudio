@@ -244,10 +244,16 @@ function FeaturedWorkSection() {
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {showcaseItems.map((item) => (
             <article key={item.title} className="shine-card group overflow-hidden rounded-[2rem] border border-borderLight bg-white shadow-ambient transition duration-300 hover:-translate-y-1 hover:border-gold/45">
-              <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${item.tone} p-3 text-white md:h-72`}>
+              <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${item.tone} p-3 text-white sm:h-64 md:h-72`}>
                 <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0_30%,rgba(255,255,255,0.16)_30.2%,transparent_30.8%_100%)] opacity-35" />
-                <div className="relative h-full overflow-hidden rounded-[1.35rem] border border-white/20 bg-white shadow-ambient transition duration-300 group-hover:scale-[1.02]">
-                  <Image src={item.image} alt={`${item.title} website screenshot`} fill sizes="(min-width: 1024px) 560px, 100vw" className="object-cover object-top" />
+                <div className="relative grid h-full place-items-center overflow-hidden rounded-[1.35rem] border border-white/20 bg-white shadow-ambient transition duration-300 group-hover:scale-[1.02]">
+                  <Image
+                    src={item.image}
+                    alt={`${item.title} website screenshot`}
+                    fill
+                    sizes="(min-width: 1024px) 360px, 100vw"
+                    className="object-contain object-center"
+                  />
                 </div>
               </div>
               <div className="p-6">
