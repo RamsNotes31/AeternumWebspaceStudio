@@ -70,7 +70,7 @@ export function ContactBriefForm() {
         </label>
       </div>
       {error ? <p className="mt-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">{error}</p> : null}
-      <button type="submit" disabled={isSubmitting} className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-gold px-5 font-bold text-navy transition hover:-translate-y-0.5 hover:shadow-gold disabled:cursor-not-allowed disabled:opacity-60">
+      <button type="submit" data-event="contact_form_submit" disabled={isSubmitting} className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-gold px-5 font-bold text-navy transition hover:-translate-y-0.5 hover:shadow-gold disabled:cursor-not-allowed disabled:opacity-60">
         <MessageCircle className="h-5 w-5" />
         {isSubmitting ? "Menyiapkan pesan..." : "Kirim brief via WhatsApp"}
       </button>

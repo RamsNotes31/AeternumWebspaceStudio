@@ -7,9 +7,9 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 const services = ["Company Profile", "Landing Page", "Web App", "Backend & Database"];
 const packages = ["Starter mulai Rp600K", "Business mulai Rp1,5jt", "Professional mulai Rp3jt+"];
 const socials = [
-  { label: "Instagram", href: "https://instagram.com/aeternum.studio", icon: Instagram },
-  { label: "Facebook", href: "https://facebook.com/aeternum.studio", icon: Facebook },
-  { label: "LinkedIn", href: "https://linkedin.com/company/aeternum-studio", icon: Linkedin },
+  { label: "Instagram segera hadir", icon: Instagram },
+  { label: "Facebook segera hadir", icon: Facebook },
+  { label: "LinkedIn segera hadir", icon: Linkedin },
 ];
 
 export function Footer() {
@@ -35,6 +35,7 @@ export function Footer() {
 
           <a
             href={getWhatsAppUrl()}
+            data-event="footer_top_whatsapp_click"
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-5 font-semibold text-navy transition hover:-translate-y-0.5 hover:shadow-gold"
           >
             <MessageCircle className="h-5 w-5" />
@@ -69,7 +70,7 @@ export function Footer() {
           </FooterCard>
 
           <FooterCard title="Kontak">
-            <a href={getWhatsAppUrl()} className="flex items-center gap-2 rounded-2xl px-3 py-2 transition hover:bg-white/[0.06] hover:text-gold">
+            <a href={getWhatsAppUrl()} data-event="footer_contact_whatsapp_click" className="flex items-center gap-2 rounded-2xl px-3 py-2 transition hover:bg-white/[0.06] hover:text-gold">
               <MessageCircle className="h-4 w-4" />
               Chat WhatsApp
             </a>
@@ -81,16 +82,14 @@ export function Footer() {
               {socials.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <a
+                  <span
                     key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
                     aria-label={item.label}
-                    className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-white/70 transition hover:-translate-y-0.5 hover:border-gold hover:text-gold"
+                    title={item.label}
+                    className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-white/35"
                   >
                     <Icon className="h-4 w-4" />
-                  </a>
+                  </span>
                 );
               })}
             </div>

@@ -43,6 +43,7 @@ export function Navbar() {
 
           <a
             href={getWhatsAppUrl()}
+            data-event="navbar_whatsapp_click"
             className="inline-flex min-h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-gold px-3 text-sm font-bold text-navy transition hover:-translate-y-0.5 hover:shadow-gold sm:min-h-11 sm:px-4"
           >
             <MessageCircle className="h-4 w-4" />

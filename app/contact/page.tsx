@@ -17,7 +17,7 @@ export default function ContactPage() {
       description="Ceritakan jenis bisnis, tujuan website, referensi desain, fitur yang dibutuhkan, dan kisaran budget. Kami bantu arahkan menjadi scope yang jelas."
     >
       <section className="mx-auto mt-12 grid max-w-6xl gap-5 lg:grid-cols-[0.8fr_1.2fr]">
-        <a href={getWhatsAppUrl()} className="shine-card rounded-[2rem] border border-gold bg-gold p-7 text-navy shadow-ambient transition hover:-translate-y-1 hover:shadow-gold">
+        <a href={getWhatsAppUrl()} data-event="contact_whatsapp_click" className="shine-card rounded-[2rem] border border-gold bg-gold p-7 text-navy shadow-ambient transition hover:-translate-y-1 hover:shadow-gold">
           <MessageCircle className="h-8 w-8" />
           <h2 className="mt-5 font-display text-3xl font-bold tracking-[-0.04em]">Konsultasi via WhatsApp</h2>
           <p className="mt-4 text-sm leading-7 text-navy/70">Klik untuk membuka template pesan. Isi data singkat agar estimasi bisa diarahkan lebih cepat.</p>

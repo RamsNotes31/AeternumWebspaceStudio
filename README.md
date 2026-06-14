@@ -39,7 +39,9 @@ The current implementation is a static frontend MVP built from the project PRD, 
 - Trust/stat strip
 - Full service pages and service preview
 - Portfolio project screenshots for Jivara, SertiKu, and TuneBoss
+- Filterable portfolio grid by project category
 - Jivara, SertiKu, and TuneBoss case study pages
+- Project social proof/testimonial section
 - Pricing preview/page with recommended package state
 - Process timeline
 - Tech ecosystem strip
@@ -48,6 +50,7 @@ The current implementation is a static frontend MVP built from the project PRD, 
 - Mobile sticky WhatsApp CTA
 - Contact brief form that opens a prefilled WhatsApp message
 - Inquiry API route with basic validation for contact briefs
+- Tracking-ready `data-event` attributes on primary CTA elements
 - Privacy policy page for inquiry data usage
 - Responsive mobile navigation
 - Footer social links
@@ -144,5 +147,5 @@ public/
 
 - Persist inquiries to a database or external CRM.
 - Add database and admin dashboard in a later phase.
-- Replace placeholder social URLs in the footer with official Aeternum social media links.
+- Replace disabled social icons in the footer with official Aeternum social media links.
 - Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_WHATSAPP_NUMBER` in Vercel project settings before production deployment.

@@ -164,6 +164,7 @@ export const projects = [
     summary: "Website kesehatan untuk memperkenalkan Jivara sebagai platform yang membantu pasien patuh minum obat.",
     description: "Jivara membantu pasien patuh minum obat dan mendeteksi interaksi berbahaya dengan makanan menggunakan teknologi AI.",
     stack: ["Healthcare website", "AI feature messaging", "Responsive landing page", "Product education"],
+    categories: ["Website", "Healthcare", "AI"],
     highlights: ["Positioning produk kesehatan", "Hero dan CTA jelas", "Alur fitur mudah dipahami", "Tampilan clean dan trusted"],
     caseStudy: {
       problem: "Produk kesehatan berbasis AI perlu dijelaskan dengan bahasa yang mudah dipahami pasien, bukan hanya istilah teknis.",
@@ -182,6 +183,7 @@ export const projects = [
     summary: "Platform sertifikat digital dengan penerbitan, pengelolaan, dan verifikasi berbasis QR Code dan blockchain.",
     description: "SertiKu adalah aplikasi untuk menerbitkan, mengelola, dan memverifikasi sertifikat digital dengan teknologi QR Code dan blockchain.",
     stack: ["Certificate platform", "QR verification", "Blockchain messaging", "SaaS landing page"],
+    categories: ["Web App", "Certificate", "Blockchain"],
     highlights: ["Value proposition jelas", "Visual dark-tech", "CTA masuk dan verifikasi", "Stat dan trust signal"],
     caseStudy: {
       problem: "Layanan sertifikat digital membutuhkan penjelasan yang meyakinkan tentang verifikasi, keamanan, dan kemudahan penggunaan.",
@@ -200,11 +202,30 @@ export const projects = [
     summary: "Aplikasi inventory internal untuk distributor sparepart motor TuneBoss ID.",
     description: "Frontend memakai Expo/React Native Web + TypeScript, backend memakai Laravel 12 + Sanctum untuk login admin/staff, stok, produk, penjualan, laporan, audit log, export, dan PWA.",
     stack: ["Expo / React Native Web", "TypeScript", "Laravel 12", "Sanctum", "PWA"],
+    categories: ["Web App", "Inventory", "Backend"],
     highlights: ["Login admin/staff", "Manajemen stok dan produk", "Penjualan dan laporan", "Audit log dan export"],
     caseStudy: {
       problem: "Distributor sparepart motor membutuhkan sistem internal untuk mengelola kategori, produk, stok, penjualan, dan laporan secara lebih rapi.",
       solution: "Aplikasi inventory dibangun dengan frontend Expo/React Native Web dan backend Laravel 12 + Sanctum untuk workflow admin/staff.",
       outcome: "TuneBoss memiliki fondasi inventory internal yang siap dipakai sebagai PWA dan dapat dikembangkan ke audit, export, dan laporan operasional.",
     },
+  },
+];
+
+export const testimonials = [
+  {
+    project: "Jivara",
+    quote: "Aeternum membantu membuat pesan produk kesehatan berbasis AI menjadi lebih mudah dipahami dan terlihat siap dipresentasikan.",
+    role: "Healthcare product website",
+  },
+  {
+    project: "SertiKu",
+    quote: "Visual dan struktur halaman dibuat untuk menjelaskan verifikasi QR dan sertifikat digital dengan lebih meyakinkan.",
+    role: "Digital certificate platform",
+  },
+  {
+    project: "TuneBoss Indonesia",
+    quote: "Sistem inventory dibangun dengan alur internal yang rapi untuk kebutuhan produk, stok, penjualan, laporan, dan audit.",
+    role: "Inventory internal system",
   },
 ];

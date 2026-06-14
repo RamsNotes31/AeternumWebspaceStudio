@@ -10,6 +10,7 @@ import {
   services,
   stats,
   techStack,
+  testimonials,
   valueProps,
 } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -24,6 +25,7 @@ export default function HomePage() {
       <ServicesSection />
       <ProcessSection />
       <FeaturedWorkSection />
+      <TestimonialsSection />
       <PricingSection />
       <PrinciplesSection />
       <TechSection />
@@ -70,6 +72,7 @@ function Hero() {
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href={getWhatsAppUrl()}
+              data-event="hero_whatsapp_click"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-navy px-6 font-semibold text-white shadow-ambient transition hover:-translate-y-0.5 hover:bg-midnight hover:shadow-gold"
             >
               Mulai Diskusi
@@ -298,6 +301,26 @@ function ProcessSection() {
   );
 }
 
+function TestimonialsSection() {
+  return (
+    <section className="white-gold-lines bg-white px-4 py-24">
+      <SectionHeader eyebrow="Social Proof" title="Project yang dibangun untuk menjelaskan produk digital dengan lebih meyakinkan." />
+      <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-3">
+        {testimonials.map((item) => (
+          <article key={item.project} className="shine-card rounded-[2rem] border border-borderLight bg-background p-6 shadow-ambient transition hover:-translate-y-1 hover:border-gold/45 hover:bg-white">
+            <p className="font-display text-4xl font-bold text-gold">“</p>
+            <p className="mt-2 text-sm leading-7 text-slateText">{item.quote}</p>
+            <div className="mt-6 border-t border-borderLight pt-4">
+              <p className="font-display text-lg font-bold text-navy">{item.project}</p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-slateText">{item.role}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function PricingSection() {
   return (
     <section className="white-gold-lines bg-white px-4 py-24" id="pricing">
@@ -325,6 +348,8 @@ function PricingSection() {
               <p className="mt-4 text-sm leading-7 text-slateText">{item.target}</p>
               <a
                 href={getWhatsAppUrl(`Halo Aeternum, saya ingin konsultasi paket ${item.name}.\nNama:\nBisnis:\nKebutuhan website:\nBudget:`)}
+                data-event="pricing_whatsapp_click"
+                data-package={item.name}
                 className={`mt-7 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold transition hover:-translate-y-0.5 ${
                   featured ? "bg-gold text-navy hover:shadow-gold" : "border border-borderLight text-navy hover:border-gold hover:text-gold"
                 }`}
@@ -439,6 +464,7 @@ function FinalCta() {
           </div>
           <a
             href={getWhatsAppUrl()}
+            data-event="final_cta_whatsapp_click"
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-6 font-semibold text-navy transition hover:-translate-y-0.5 hover:shadow-gold"
           >
             <MessageCircle className="h-5 w-5" />
@@ -455,6 +481,7 @@ function MobileStickyCta() {
     <div className="fixed inset-x-4 bottom-4 z-50 md:hidden">
       <a
         href={getWhatsAppUrl()}
+        data-event="mobile_sticky_whatsapp_click"
         className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-5 font-semibold text-navy shadow-gold"
       >
         <MessageCircle className="h-5 w-5" />

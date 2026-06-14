@@ -25,6 +25,7 @@ export function PageHero({ eyebrow, title, description, children }: PageHeroProp
         <p className="mt-6 max-w-2xl text-base leading-8 text-slateText md:text-lg">{description}</p>
         <a
           href={getWhatsAppUrl()}
+          data-event="page_hero_whatsapp_click"
           className="mt-9 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-6 font-semibold text-navy transition hover:-translate-y-0.5 hover:shadow-gold"
         >
           <MessageCircle className="h-5 w-5" />
