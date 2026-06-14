@@ -54,13 +54,14 @@ function Hero() {
 
       <div className="relative z-10 mx-auto max-w-6xl text-center">
         <div className="reveal-soft mx-auto max-w-4xl">
-          <p className="mx-auto mb-7 inline-flex items-center gap-2 rounded-full border border-gold/35 bg-white/75 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-slateText shadow-sm backdrop-blur">
-            <span className="h-2 w-2 rounded-full bg-emerald-400" />
-            Studio website profesional untuk bisnis modern
-          </p>
-          <h1 className="font-display text-5xl font-bold leading-[0.98] tracking-[-0.06em] text-navy md:text-7xl">
+          <h1 className="font-display text-5xl font-bold leading-[0.98] tracking-[-0.06em] text-navy md:text-7xl lg:hidden">
             Aeternum <span className="bg-gradient-to-r from-gold via-[#F5D46A] to-navy bg-clip-text text-transparent">Webspace</span>
             <br />Studio
+          </h1>
+          <h1 className="hidden font-display text-7xl font-bold leading-[0.98] tracking-[-0.06em] text-navy lg:block">
+            <span className="hero-typewriter">
+              Aeternum <span className="bg-gradient-to-r from-gold via-[#F5D46A] to-navy bg-clip-text text-transparent">Webspace</span> Studio
+            </span>
           </h1>
           <h2 className="mt-6 font-display text-2xl font-semibold tracking-[-0.03em] text-slate-700 md:text-3xl">
             Jasa Pembuatan Website & Sistem Web Profesional
