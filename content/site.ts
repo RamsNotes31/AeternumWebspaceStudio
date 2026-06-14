@@ -14,47 +14,46 @@ import {
 } from "lucide-react";
 
 export const navItems = [
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
+  { label: "Layanan", href: "/services" },
+  { label: "Karya", href: "/work" },
   { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Tentang", href: "/about" },
+  { label: "Kontak", href: "/contact" },
 ];
 
 export const trustItems = [
-  "Website",
-  "Web App",
-  "Backend",
-  "Database",
-  "Deployment",
+  "Brief dan scope dirapikan dulu",
+  "Desain mengikuti kebutuhan bisnis",
+  "Frontend, backend, dan database bisa satu paket",
+  "Siap dibantu sampai deploy",
 ];
 
 export const stats = [
-  { value: "Full-stack", label: "delivery" },
-  { value: "Scope", label: "terdokumentasi" },
-  { value: "Deploy", label: "ready" },
-  { value: "Built", label: "to scale" },
+  { value: "1", label: "featured project: TuneBoss Inventory" },
+  { value: "End-to-end", label: "dari landing page sampai backend" },
+  { value: "Scope-first", label: "biar budget dan timeline jelas" },
+  { value: "Deploy-ready", label: "bisa Vercel, Supabase, atau VPS" },
 ];
 
 export const services = [
   {
     title: "Website Company Profile",
-    description: "Website bisnis yang rapi, cepat, responsif, dan siap dipakai untuk validasi brand.",
+    description: "Untuk bisnis yang butuh profil resmi, kredibel, dan mudah dipahami calon client tanpa penjelasan panjang di chat.",
     icon: Globe2,
   },
   {
     title: "Landing Page Promosi",
-    description: "Halaman campaign dengan pesan jelas, CTA kuat, dan struktur konversi yang fokus.",
+    description: "Untuk campaign, jasa, produk, atau iklan. Fokus pada satu pesan, satu alur baca, dan CTA yang jelas.",
     icon: Rocket,
   },
   {
     title: "Web App Internal",
-    description: "Aplikasi operasional untuk inventory, dashboard, workflow, reporting, dan tools internal.",
+    description: "Untuk operasional seperti inventory, dashboard, reporting, approval, atau workflow internal yang mulai kewalahan di spreadsheet.",
     icon: Layers3,
   },
   {
     title: "Backend API & Database",
-    description: "API, autentikasi, database PostgreSQL, dan struktur data yang siap dikembangkan.",
+    description: "Untuk project yang butuh login, data real, integrasi, PostgreSQL, API, dan fondasi teknis yang tidak asal jalan.",
     icon: Database,
   },
 ];
@@ -63,7 +62,7 @@ export const featuredProject = {
   title: "TuneBoss Indonesia Inventory System",
   labels: ["Inventory System", "Backend", "Database", "Deployment"],
   description:
-    "Sistem inventory internal untuk membantu pengelolaan stok, produk, kategori, barang masuk/keluar, SKU/barcode lookup, dan laporan operasional.",
+    "Sistem inventory internal untuk membantu tim mengelola produk, kategori, stok masuk/keluar, pencarian SKU/barcode, dan laporan operasional harian.",
   highlights: [
     "Dashboard inventory",
     "Login admin/staff",
@@ -78,30 +77,30 @@ export const packages = [
   {
     name: "Starter Website",
     price: "Rp2,5jt - Rp5jt",
-    target: "Landing page atau company profile sederhana.",
+    target: "Cocok untuk landing page atau profil bisnis satu sampai beberapa section.",
   },
   {
     name: "Business Website",
     price: "Rp5jt - Rp10jt",
-    target: "Website multi halaman, form inquiry, dan SEO dasar.",
+    target: "Untuk website multi halaman dengan struktur layanan, portfolio, form, dan SEO dasar.",
   },
   {
     name: "Web App MVP",
     price: "Rp10jt - Rp20jt",
-    target: "Frontend, backend, database, dan dashboard awal.",
+    target: "Untuk dashboard awal, login, database, dan workflow internal versi pertama.",
   },
   {
     name: "Custom System",
     price: "Mulai Rp15jt",
-    target: "Inventory, dashboard internal, workflow khusus, dan deployment.",
+    target: "Untuk inventory, admin dashboard, backend custom, report, role user, dan deployment.",
   },
 ];
 
 export const processSteps = [
-  { title: "Diskusi & Analisa", description: "Memetakan tujuan bisnis, user, scope, dan prioritas fitur." },
-  { title: "Desain & Arsitektur", description: "Menyusun struktur halaman, data model, flow, dan arah visual." },
-  { title: "Development", description: "Membangun frontend, backend, database, integrasi, dan validasi." },
-  { title: "QA & Deployment", description: "Testing, revisi, setup production, dan handover awal." },
+  { title: "Rapikan kebutuhan", description: "Kita mulai dari tujuan, contoh referensi, batasan budget, dan fitur yang benar-benar penting." },
+  { title: "Susun struktur", description: "Konten, halaman, flow, data, dan desain dibuat dulu supaya pengerjaan tidak menebak-nebak." },
+  { title: "Bangun bertahap", description: "Frontend, backend, database, dan integrasi dikerjakan per modul agar mudah direview." },
+  { title: "Test dan launch", description: "Sebelum publish, fitur dicek, tampilan dirapikan, lalu dibantu deploy ke environment yang disepakati." },
 ];
 
 export const techStack = [
@@ -120,29 +119,35 @@ export const techStack = [
 export const faqs = [
   {
     question: "Berapa lama pembuatan website?",
-    answer: "Landing page sederhana biasanya 5-7 hari kerja. Web app atau sistem internal mengikuti scope fitur.",
+    answer: "Landing page atau company profile sederhana biasanya 5-7 hari kerja setelah konten dan scope jelas. Website multi halaman atau sistem internal akan dihitung berdasarkan fitur.",
   },
   {
     question: "Apakah bisa membuat backend dan database?",
-    answer: "Bisa. Aeternum dapat menangani frontend, backend API, database PostgreSQL, autentikasi, dan deployment.",
+    answer: "Bisa. Aeternum bisa menangani frontend, backend API, PostgreSQL, autentikasi, validasi data, sampai deployment.",
   },
   {
     question: "Apakah bisa membuat sistem inventory atau dashboard internal?",
-    answer: "Bisa. TuneBoss Inventory System menjadi contoh featured project untuk kebutuhan inventory internal.",
+    answer: "Bisa. TuneBoss Inventory System menjadi contoh awal untuk kebutuhan inventory internal, dashboard operasional, stok masuk/keluar, dan laporan dasar.",
   },
   {
     question: "Apakah harga bisa disesuaikan dengan scope?",
-    answer: "Bisa. Harga final ditentukan setelah scope, timeline, integrasi, dan kebutuhan backend/database jelas.",
+    answer: "Bisa. Kami lebih suka menentukan harga setelah scope jelas, supaya tidak terlalu murah di awal lalu banyak biaya tambahan di tengah jalan.",
   },
 ];
 
 export const valueProps = [
-  { title: "Rapi dari brief sampai launch", icon: FileText },
-  { title: "Frontend, backend, database", icon: ServerCog },
-  { title: "Scope jelas dan terukur", icon: CheckCircle2 },
-  { title: "Siap dikembangkan", icon: Sparkles },
-  { title: "Security-aware", icon: ShieldCheck },
-  { title: "Bisnis dan teknis seimbang", icon: BarChart3 },
-  { title: "Custom system ready", icon: Boxes },
-  { title: "Clean implementation", icon: Code2 },
+  { title: "Tidak langsung coding sebelum scope jelas", icon: FileText },
+  { title: "Bisa handle UI, API, database", icon: ServerCog },
+  { title: "Timeline dan output dibuat terukur", icon: CheckCircle2 },
+  { title: "Struktur siap dikembangkan lagi", icon: Sparkles },
+  { title: "Validasi dan keamanan dasar diperhatikan", icon: ShieldCheck },
+  { title: "Bahasa teknis diterjemahkan ke kebutuhan bisnis", icon: BarChart3 },
+  { title: "Cocok untuk sistem custom", icon: Boxes },
+  { title: "Kode dibuat bersih dan mudah dirawat", icon: Code2 },
+];
+
+export const painPoints = [
+  "Website lama terlihat kurang meyakinkan saat dibagikan ke calon client.",
+  "Masih terlalu banyak proses bisnis yang jalan lewat chat, Excel, atau catatan manual.",
+  "Punya ide sistem, tapi belum tahu harus mulai dari flow, database, atau desainnya.",
 ];
