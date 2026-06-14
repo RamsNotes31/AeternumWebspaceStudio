@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
+
+export const metadata: Metadata = {
+  title: "Tentang Aeternum | Website Studio Profesional",
+  description: "Aeternum Webspace Studio membantu bisnis membangun website premium, struktur digital rapi, dan sistem web yang siap dikembangkan.",
+};
 
 export default function AboutPage() {
   return (

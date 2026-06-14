@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
+
+export const metadata: Metadata = {
+  title: "Portfolio & Case Study | Aeternum Webspace Studio",
+  description: "Lihat arah hasil kerja Aeternum untuk website bisnis, landing page, dashboard internal, dan sistem inventory seperti TuneBoss Indonesia.",
+};
 
 export default function WorkPage() {
   return (

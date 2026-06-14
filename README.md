@@ -18,28 +18,30 @@ The current implementation is a static frontend MVP built from the project PRD, 
 | Route | Description |
 |---|---|
 | `/` | Landing page |
-| `/services` | Services placeholder page |
-| `/work` | Portfolio placeholder page |
-| `/work/tuneboss-inventory-system` | TuneBoss case study placeholder page |
-| `/pricing` | Pricing placeholder page |
-| `/about` | About placeholder page |
-| `/contact` | Contact placeholder page |
+| `/services` | Services page for website, landing page, web app, backend, database, and deployment offers |
+| `/work` | Portfolio and featured case study overview |
+| `/work/tuneboss-inventory-system` | TuneBoss inventory system case study |
+| `/pricing` | Pricing package estimates and WhatsApp consultation CTAs |
+| `/about` | Studio positioning, working principles, and brand story |
+| `/contact` | WhatsApp consultation page and project brief checklist |
 
 ## Current Features
 
 - Premium floating navbar
 - Aeternum brand color system: deep navy, soft white, slate, gold
-- Hero section with project console visual
+- Cyber gold hero section with animated studio visuals
 - Trust/stat strip
-- Services preview
-- TuneBoss featured project showcase
-- Pricing preview with recommended package state
+- Full service pages and service preview
+- TuneBoss featured project showcase and case study page
+- Pricing preview/page with recommended package state
 - Process timeline
 - Tech ecosystem strip
 - FAQ section
 - Final WhatsApp CTA
 - Mobile sticky WhatsApp CTA
-- Static route placeholders for MVP pages
+- Responsive mobile navigation
+- Footer social links
+- Per-page SEO metadata and generated Open Graph image
 
 ## Getting Started
 
@@ -85,7 +87,7 @@ Available variables:
 
 ```text
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-NEXT_PUBLIC_WHATSAPP_NUMBER=6280000000000
+NEXT_PUBLIC_WHATSAPP_NUMBER=6289697100997
 ```
 
 `NEXT_PUBLIC_WHATSAPP_NUMBER` is used by all WhatsApp CTA links. Use international format without `+`.
@@ -122,8 +124,8 @@ public/
 
 ## Next Steps
 
-- Build full `/services`, `/work`, `/pricing`, `/about`, and `/contact` pages.
-- Replace placeholder page content with final copy.
 - Add contact form handling.
 - Add backend route handlers for inquiries.
 - Add database and admin dashboard in a later phase.
+- Replace placeholder social URLs in the footer with official Aeternum social media links.
+- Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_WHATSAPP_NUMBER` in Vercel project settings before production deployment.

@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
+
+export const metadata: Metadata = {
+  title: "TuneBoss Inventory System Case Study | Aeternum",
+  description: "Case study sistem inventory internal TuneBoss Indonesia sebagai contoh project dashboard operasional dan sistem web Aeternum.",
+};
 
 export default function TuneBossCaseStudyPage() {
   return (

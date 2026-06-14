@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import { MessageCircle } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { packages } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+
+export const metadata: Metadata = {
+  title: "Harga Pembuatan Website | Aeternum Webspace Studio",
+  description: "Estimasi paket website Aeternum mulai Rp600K untuk landing page, company profile, website profesional, dan custom system.",
+};
 
 export default function PricingPage() {
   return (

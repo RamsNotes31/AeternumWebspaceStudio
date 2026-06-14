@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { MessageCircle } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+
+export const metadata: Metadata = {
+  title: "Kontak & Konsultasi Website | Aeternum Webspace Studio",
+  description: "Konsultasikan kebutuhan website, landing page, backend, atau sistem web bisnis Anda bersama Aeternum via WhatsApp.",
+};
 
 export default function ContactPage() {
   return (

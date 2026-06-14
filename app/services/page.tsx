@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { services } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "Layanan Website & Sistem Web | Aeternum Webspace Studio",
+  description: "Layanan pembuatan website company profile, landing page, web app internal, backend API, database, dan deployment untuk bisnis modern.",
+};
 
 export default function ServicesPage() {
   return (
