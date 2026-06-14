@@ -108,6 +108,10 @@ INQUIRY_WEBHOOK_URL=
 `INQUIRY_WEBHOOK_URL` is optional. When set, `POST /api/inquiries` forwards validated brief data to an external webhook such as Google Apps Script, Make, Zapier, Airtable, or a CRM.
 The inquiry endpoint includes a hidden honeypot field and a small in-memory rate limit to reduce low-effort spam.
 
+## Analytics Events
+
+CTA elements use `data-event` attributes. The global event tracker forwards clicks to `window.gtag`, `window.dataLayer`, or `window.plausible` when those analytics providers are installed.
+
 ## Project Structure
 
 ```text
@@ -130,6 +134,7 @@ app/
 components/
   layout/
   sections/
+  seo/
 content/
   site.ts
 lib/
