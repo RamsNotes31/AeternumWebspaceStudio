@@ -215,9 +215,17 @@ function FeaturedWorkSection() {
       image: "/assets/projects/sertiku-home.png",
       href: "https://sertiku.web.id",
     },
+    {
+      title: "TuneBoss Indonesia Inventory",
+      description: "Aplikasi inventory internal distributor sparepart motor dengan Expo/React Native Web, TypeScript, Laravel 12, Sanctum, stok, produk, penjualan, laporan, audit log, export, dan PWA.",
+      tone: "from-[#080808] via-[#111111] to-[#F97316]",
+      label: "Inventory System",
+      image: "/assets/projects/tuneboss-inventory.png",
+      href: "/work/tuneboss-inventory-system",
+    },
   ];
 
-  const trustedBy = ["Jivara", "jivara.web.id", "AI Medication Reminder", "Food Interaction Check", "SertiKu", "sertiku.web.id", "QR Verification", "Blockchain Certificate" ];
+  const trustedBy = ["Jivara", "jivara.web.id", "AI Medication Reminder", "SertiKu", "sertiku.web.id", "QR Verification", "TuneBoss Indonesia", "Inventory Internal", "Laravel 12", "Expo Web", "PWA" ];
 
   return (
     <section className="relative px-4 py-24" id="work">
@@ -226,14 +234,14 @@ function FeaturedWorkSection() {
         <div>
           <SectionEyebrow>Contoh Tampilan</SectionEyebrow>
           <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-[-0.035em] text-navy md:text-5xl">
-            Hasil kerja Aeternum untuk project Jivara.
+            Hasil kerja Aeternum untuk project digital nyata.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slateText">
-            Dari Jivara sampai SertiKu, Aeternum membantu menyusun website dan aplikasi web yang menjelaskan manfaat produk digital secara jelas, profesional, dan mudah dipercaya pengguna.
+            Dari Jivara, SertiKu, sampai TuneBoss Indonesia, Aeternum membantu menyusun website dan aplikasi web yang menjelaskan manfaat produk digital secara jelas, profesional, dan mudah dipercaya pengguna.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {showcaseItems.map((item) => (
             <article key={item.title} className="shine-card group overflow-hidden rounded-[2rem] border border-borderLight bg-white shadow-ambient transition duration-300 hover:-translate-y-1 hover:border-gold/45">
               <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${item.tone} p-3 text-white md:h-72`}>
@@ -246,10 +254,17 @@ function FeaturedWorkSection() {
                 <span className="rounded-full bg-gold/12 px-3 py-1 text-xs font-semibold text-gold">{item.label}</span>
                 <h3 className="mt-5 font-display text-2xl font-semibold tracking-[-0.02em] text-navy">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slateText">{item.description}</p>
-                <a href={item.href} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy transition hover:text-gold">
-                  Lihat website
-                  <ArrowRight className="h-4 w-4" />
-                </a>
+                {item.href.startsWith("http") ? (
+                  <a href={item.href} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy transition hover:text-gold">
+                    Lihat website
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                ) : (
+                  <Link href={item.href} className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy transition hover:text-gold">
+                    Lihat case study
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                )}
               </div>
             </article>
           ))}
@@ -259,7 +274,7 @@ function FeaturedWorkSection() {
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">Project Aeternum</p>
-              <h3 className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-navy">Kami membantu Jivara dan SertiKu menampilkan nilai produknya: AI kesehatan, QR verification, dan sertifikat digital berbasis blockchain.</h3>
+              <h3 className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-navy">Kami membantu Jivara, SertiKu, dan TuneBoss menampilkan nilai produknya: AI kesehatan, QR verification, blockchain certificate, dan inventory internal.</h3>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row">
               <a href="https://jivara.web.id" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-borderLight px-5 text-sm font-semibold text-navy transition hover:border-gold hover:text-gold">
@@ -270,6 +285,10 @@ function FeaturedWorkSection() {
                 SertiKu
                 <ArrowRight className="h-4 w-4" />
               </a>
+              <Link href="/work/tuneboss-inventory-system" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-borderLight px-5 text-sm font-semibold text-navy transition hover:border-gold hover:text-gold">
+                TuneBoss
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
           <div className="mt-8 overflow-hidden rounded-2xl border border-borderLight bg-background/80 p-3">
