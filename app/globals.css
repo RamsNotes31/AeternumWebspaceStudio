@@ -368,6 +368,49 @@ a {
   }
 }
 
+@media (max-width: 767px) {
+  .gold-line-bg,
+  .cyber-gold-hero::before,
+  .cyber-gold-hero::after,
+  .white-gold-lines::before,
+  .animated-gold-bg::before,
+  .animated-gold-bg::after,
+  .floating-soft,
+  .reveal-soft,
+  .walking-marquee,
+  .character-bob,
+  .character-bob-delayed,
+  .hero-glyph,
+  .hero-glyph-delayed {
+    animation: none;
+  }
+
+  .gold-line-bg {
+    background-image:
+      radial-gradient(circle at 8% 18%, rgba(212, 175, 55, 0.07), transparent 18rem),
+      linear-gradient(180deg, rgba(226, 232, 240, 0.5) 0, rgba(226, 232, 240, 0.5) 1px, transparent 1px, transparent 96px);
+    background-size: auto, 96px 96px;
+  }
+
+  .cyber-gold-hero::after,
+  .white-gold-lines::before,
+  .shine-card::before {
+    display: none;
+  }
+
+  .cyber-gold-hero::before {
+    background-image:
+      linear-gradient(rgba(17, 28, 45, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17, 28, 45, 0.045) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .glass-panel,
+  .shine-card {
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  }
+}
+
 .gold-corner-lines {
   position: relative;
 }

@@ -7,7 +7,7 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 export function Navbar() {
   return (
     <header className="fixed left-0 right-0 top-3 z-50 px-3 md:top-5 md:px-4">
-      <nav className="mx-auto max-w-6xl rounded-[1.6rem] border border-white/70 bg-white/90 p-2 shadow-ambient backdrop-blur-xl md:rounded-full md:px-6 md:py-3">
+      <nav className="mx-auto max-w-6xl rounded-[1.6rem] border border-white/70 bg-white/95 p-2 shadow-ambient md:rounded-full md:bg-white/90 md:px-6 md:py-3 md:backdrop-blur-xl">
         <div className="flex items-center justify-between gap-3">
           <Link href="/" className="flex min-w-0 items-center gap-2 rounded-full pr-2" aria-label="Aeternum Webspace Studio home">
             <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-white shadow-ambient ring-1 ring-borderLight md:h-10 md:w-10">
