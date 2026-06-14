@@ -48,13 +48,13 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="animated-gold-bg relative px-4 pb-20 pt-36 text-white md:pb-28 md:pt-44">
+    <section className="animated-gold-bg relative px-4 pb-16 pt-28 text-white md:pb-24 md:pt-36">
       <div className="absolute inset-x-0 top-0 h-px bg-gold/50" />
       <div className="absolute right-[-12rem] top-16 h-96 w-96 rounded-full bg-gold/15 blur-3xl" />
       <div className="absolute bottom-10 left-[-10rem] h-72 w-72 rounded-full bg-white/8 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="mb-8 flex flex-wrap items-center gap-3">
+        <div className="mb-8 flex max-w-4xl flex-wrap items-center gap-3">
           <span className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-white/8 px-4 py-2 text-sm text-white/75 backdrop-blur">
             <Sparkles className="h-4 w-4 text-gold" />
             Jasa Website Profesional
@@ -64,12 +64,12 @@ function Hero() {
           </span>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="mb-5 max-w-xl text-sm font-semibold uppercase tracking-[0.24em] text-gold">
               Aeternum Webspace Studio
             </p>
-            <h1 className="max-w-4xl font-display text-5xl font-bold leading-[1.02] tracking-[-0.055em] md:text-7xl">
+            <h1 className="max-w-3xl font-display text-5xl font-bold leading-[1.03] tracking-[-0.05em] md:text-6xl">
               Jasa Pembuatan Website Profesional untuk Bisnis Anda.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/68">
@@ -94,7 +94,7 @@ function Hero() {
             </div>
           </div>
 
-          <div className="gold-corner-lines rounded-[2rem] border border-white/12 bg-white/8 p-4 shadow-ambient backdrop-blur-xl md:p-6">
+          <div className="rounded-[2rem] border border-white/12 bg-white/8 p-3 shadow-ambient backdrop-blur-xl md:p-5">
             <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0D1424]">
               <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
                 <div className="flex items-center gap-2">
@@ -107,7 +107,7 @@ function Hero() {
                 </span>
               </div>
 
-              <div className="p-5">
+              <div className="p-4 md:p-5">
                 <div className="rounded-[1.25rem] bg-white p-5 text-navy shadow-ambient">
                   <div className="mb-5 flex items-center justify-between gap-4">
                     <div>
@@ -123,7 +123,7 @@ function Hero() {
                     <div className="h-3 w-1/2 rounded-full bg-slate-200" />
                   </div>
 
-                  <div className="mt-6 grid grid-cols-3 gap-3">
+                  <div className="mt-6 grid grid-cols-3 gap-2 md:gap-3">
                     {[
                       ["Hero", "CTA"],
                       ["Service", "4"],
@@ -137,7 +137,7 @@ function Hero() {
                   </div>
                 </div>
 
-                <div className="mt-4 grid gap-3">
+                <div className="mt-4 grid gap-2.5">
                   {[
                     "Struktur halaman dan copy utama",
                     "Desain responsif desktop dan mobile",
