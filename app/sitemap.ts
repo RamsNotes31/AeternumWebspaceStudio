@@ -10,6 +10,7 @@ const routes = [
   "/pricing",
   "/about",
   "/contact",
+  "/scope",
   "/privacy",
 ];
 

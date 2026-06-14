@@ -99,6 +99,7 @@ export function Footer() {
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/42 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Aeternum Webspace Studio.</p>
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+            <Link href="/scope" className="transition hover:text-gold">Scope Note</Link>
             <Link href="/privacy" className="transition hover:text-gold">Privacy Policy</Link>
             <p>Modern website presence for growing businesses.</p>
           </div>

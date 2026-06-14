@@ -101,16 +101,20 @@ Available variables:
 ```text
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_WHATSAPP_NUMBER=6289697100997
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=
 INQUIRY_WEBHOOK_URL=
 ```
 
 `NEXT_PUBLIC_WHATSAPP_NUMBER` is used by all WhatsApp CTA links. Use international format without `+`.
+`NEXT_PUBLIC_GA_MEASUREMENT_ID` is optional. When set, Google Analytics loads automatically.
+`NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is optional. When set, Plausible loads automatically for the configured domain.
 `INQUIRY_WEBHOOK_URL` is optional. When set, `POST /api/inquiries` forwards validated brief data to an external webhook such as Google Apps Script, Make, Zapier, Airtable, or a CRM.
 The inquiry endpoint includes a hidden honeypot field and a small in-memory rate limit to reduce low-effort spam.
 
 ## Analytics Events
 
-CTA elements use `data-event` attributes. The global event tracker forwards clicks to `window.gtag`, `window.dataLayer`, or `window.plausible` when those analytics providers are installed.
+CTA elements use `data-event` attributes. The global event tracker forwards clicks to `window.gtag`, `window.dataLayer`, or `window.plausible` when those analytics providers are installed. Add only one provider env if you want a single analytics source.
 
 ## Project Structure
 
@@ -128,6 +132,7 @@ app/
   pricing/page.tsx
   about/page.tsx
   contact/page.tsx
+  scope/page.tsx
   privacy/page.tsx
   sitemap.ts
   robots.ts
@@ -156,4 +161,4 @@ public/
 - Connect `INQUIRY_WEBHOOK_URL` to Google Sheets, Airtable, Make, Zapier, or a CRM for persistent inquiry storage.
 - Add database and admin dashboard in a later phase.
 - Replace disabled social icons in the footer with official Aeternum social media links.
-- Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_WHATSAPP_NUMBER` in Vercel project settings before production deployment.
+- Set production env values in Vercel before deployment.
