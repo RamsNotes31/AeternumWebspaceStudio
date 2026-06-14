@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
+import { AnalyticsScripts } from "@/components/seo/analytics-scripts";
+import { EventTracker } from "@/components/seo/event-tracker";
 import { StructuredData } from "@/components/seo/structured-data";
 import "./globals.css";
 
@@ -49,6 +51,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="id" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
         <StructuredData />
+        <AnalyticsScripts />
+        <EventTracker />
         <Navbar />
         {children}
         <Footer />
