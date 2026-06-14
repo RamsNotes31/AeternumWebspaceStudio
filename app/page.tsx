@@ -16,7 +16,6 @@ import {
   services,
   stats,
   techStack,
-  trustItems,
   valueProps,
 } from "@/content/site";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -96,33 +95,49 @@ function Hero() {
           </div>
 
           <div className="gold-corner-lines rounded-[2rem] border border-white/12 bg-white/8 p-4 shadow-ambient backdrop-blur-xl md:p-6">
-            <div className="rounded-[1.5rem] border border-white/10 bg-midnight/80 p-5">
+            <div className="rounded-[1.5rem] border border-white/10 bg-midnight/85 p-5">
               <div className="mb-6 flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Project Console</p>
-                  <p className="mt-2 font-display text-2xl font-semibold">Solusi website modern, rapi, dan siap online.</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Website Plan</p>
+                  <p className="mt-2 font-display text-2xl font-semibold">Dari konsultasi singkat ke website yang siap dipakai.</p>
                 </div>
-                <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
-                  Planned
+                <span className="rounded-full bg-gold/10 px-3 py-1 text-xs font-semibold text-gold">
+                  MVP Ready
                 </span>
               </div>
 
               <div className="grid gap-3">
-                {trustItems.map((item, index) => (
-                  <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-                    <div className="mb-3 flex items-center justify-between gap-4 text-sm">
-                      <span className="text-white/82">{item}</span>
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-gold" />
-                    </div>
-                    <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
-                      <div className="h-full rounded-full bg-gold" style={{ width: `${94 - index * 7}%` }} />
+                {[
+                  ["01", "Konsultasi", "Tujuan website, referensi, dan kebutuhan utama."],
+                  ["02", "Rancangan", "Struktur halaman, copy utama, dan CTA dibuat jelas."],
+                  ["03", "Publish", "Website responsif, siap online, dan mudah dibagikan."],
+                ].map(([number, title, description]) => (
+                  <div key={title} className="grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-white/10 bg-white/[0.06] p-4">
+                    <span className="grid h-10 w-10 place-items-center rounded-full bg-gold text-sm font-bold text-navy">
+                      {number}
+                    </span>
+                    <div>
+                      <div className="mb-1 flex items-center justify-between gap-3">
+                        <p className="font-display text-base font-semibold text-white">{title}</p>
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-gold" />
+                      </div>
+                      <p className="text-sm leading-6 text-white/58">{description}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-5 rounded-2xl border border-gold/20 bg-gold/10 p-4 text-sm leading-6 text-white/75">
-                Cocok untuk bisnis yang ingin memiliki website profesional dengan proses pengerjaan yang jelas.
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                {[
+                  ["Mulai", "Rp600K"],
+                  ["Durasi", "5-7 hari"],
+                  ["CTA", "WhatsApp"],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-2xl border border-gold/15 bg-gold/10 p-4">
+                    <p className="text-xs uppercase tracking-[0.18em] text-white/45">{label}</p>
+                    <p className="mt-2 font-display text-lg font-bold text-gold">{value}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
