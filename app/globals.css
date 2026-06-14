@@ -61,6 +61,68 @@ a {
     var(--midnight);
 }
 
+.animated-gold-bg {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(212, 175, 55, 0.18), transparent 28%),
+    radial-gradient(circle at 86% 16%, rgba(255, 255, 255, 0.08), transparent 30%),
+    linear-gradient(135deg, #0f172a 0%, #111c2d 48%, #131b2e 100%);
+}
+
+.animated-gold-bg::before,
+.animated-gold-bg::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  pointer-events: none;
+}
+
+.animated-gold-bg::before {
+  opacity: 0.5;
+  background-image:
+    linear-gradient(115deg, transparent 0 18%, rgba(212, 175, 55, 0.16) 18.15%, transparent 18.55% 100%),
+    linear-gradient(115deg, transparent 0 44%, rgba(212, 175, 55, 0.1) 44.12%, transparent 44.42% 100%),
+    linear-gradient(115deg, transparent 0 72%, rgba(212, 175, 55, 0.14) 72.14%, transparent 72.5% 100%);
+  background-size: 380px 380px;
+  animation: gold-lines-drift 24s linear infinite;
+}
+
+.animated-gold-bg::after {
+  opacity: 0.65;
+  background:
+    radial-gradient(circle at 20% 32%, rgba(212, 175, 55, 0.18), transparent 13%),
+    radial-gradient(circle at 82% 70%, rgba(212, 175, 55, 0.12), transparent 16%),
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  filter: blur(1px);
+  animation: gold-glow-float 18s ease-in-out infinite alternate;
+}
+
+@keyframes gold-lines-drift {
+  from {
+    transform: translate3d(-6%, -4%, 0);
+  }
+
+  to {
+    transform: translate3d(6%, 4%, 0);
+  }
+}
+
+@keyframes gold-glow-float {
+  from {
+    transform: translate3d(-2%, 1%, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(2%, -1%, 0) scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-gold-bg::before,
+  .animated-gold-bg::after {
+    animation: none;
+  }
+}
+
 .gold-line-bg {
   background-image:
     linear-gradient(115deg, rgba(212, 175, 55, 0.1) 0, rgba(212, 175, 55, 0.1) 1px, transparent 1px, transparent 120px),

@@ -48,7 +48,7 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="premium-grid syntax-gradient relative px-4 pb-20 pt-36 text-white md:pb-28 md:pt-44">
+    <section className="animated-gold-bg relative px-4 pb-20 pt-36 text-white md:pb-28 md:pt-44">
       <div className="absolute inset-x-0 top-0 h-px bg-gold/50" />
       <div className="absolute right-[-12rem] top-16 h-96 w-96 rounded-full bg-gold/15 blur-3xl" />
       <div className="absolute bottom-10 left-[-10rem] h-72 w-72 rounded-full bg-white/8 blur-3xl" />
