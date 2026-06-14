@@ -251,7 +251,7 @@ function FeaturedWorkSection() {
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">Project Aeternum</p>
-              <h3 className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-navy">Kami membantu Jivara, SertiKu, dan TuneBoss menampilkan nilai produknya: AI kesehatan, QR verification, blockchain certificate, dan inventory internal.</h3>
+              <h3 className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-navy">Klien telah memercayakan Aeternum untuk membangun website dan sistem digital yang menjelaskan produk mereka dengan lebih jelas, profesional, dan mudah dipercaya.</h3>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row">
               <a href="https://jivara.web.id" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-borderLight px-5 text-sm font-semibold text-navy transition hover:border-gold hover:text-gold">
