@@ -44,7 +44,7 @@ function Hero() {
       <div className="hero-glyph-delayed absolute right-[6%] top-32 hidden lg:block">
         <FloatingCharacter name="Design" role="UI landing page" tone="white" />
       </div>
-      <div className="hero-glyph absolute bottom-12 right-[12%] hidden xl:block">
+      <div className="hero-glyph absolute bottom-12 right-[3%] hidden 2xl:block">
         <FloatingCharacter name="Deploy" role="Online ready" tone="navy" />
       </div>
 
@@ -227,10 +227,10 @@ function FeaturedWorkSection() {
         <div>
           <SectionEyebrow>Contoh Tampilan</SectionEyebrow>
           <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-[-0.035em] text-navy md:text-5xl">
-            Gambaran website yang bisa dibuat untuk bisnis Anda.
+            Hasil tampilan website yang Aeternum siapkan untuk bisnis Anda.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slateText">
-            Berikut contoh arah tampilan yang bisa disesuaikan dengan brand, jenis bisnis, dan tujuan website Anda. Gambar bersifat dummy sebagai gambaran layout.
+            Setiap project kami arahkan agar terlihat profesional, mudah dipahami calon pelanggan, dan punya alur konsultasi yang jelas. Tampilan berikut menjadi contoh gaya output yang dapat kami sesuaikan dengan identitas brand Anda.
           </p>
         </div>
 
@@ -269,8 +269,8 @@ function FeaturedWorkSection() {
         <div className="mt-16 rounded-[2rem] border border-borderLight bg-white/90 p-6 shadow-ambient backdrop-blur md:p-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">Sudah dipercaya oleh</p>
-              <h3 className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-navy">Contoh brand dan bisnis yang bisa kami bantu.</h3>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">Arah project Aeternum</p>
+              <h3 className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-navy">Website yang kami bangun dirancang untuk membantu brand terlihat lebih siap, rapi, dan meyakinkan.</h3>
             </div>
             <a href={getWhatsAppUrl()} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-borderLight px-5 text-sm font-semibold text-navy transition hover:border-gold hover:text-gold">
               Konsultasi Website
@@ -298,7 +298,7 @@ function ProcessSection() {
       <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
       <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
       <SectionHeader eyebrow="Alur Kerja" title="Proses pembuatan website yang jelas dan terarah." dark />
-      <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto mt-16 grid max-w-6xl gap-7 md:grid-cols-2 lg:grid-cols-4">
         {processSteps.map((step, index) => (
           <article key={step.title} className="shine-card rounded-3xl border border-white/10 bg-white/8 p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-gold/35 hover:bg-white/12">
             <p className="font-display text-5xl font-bold text-gold/75 drop-shadow">0{index + 1}</p>
@@ -327,11 +327,11 @@ function PricingSection() {
               }`}
             >
               {featured ? (
-                <span className="absolute right-5 top-5 rounded-full bg-gold px-3 py-1 text-xs font-semibold text-navy">
+                <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold bg-gold px-4 py-1.5 text-xs font-bold text-navy shadow-gold">
                   Recommended
                 </span>
               ) : null}
-              <h3 className="pr-24 font-display text-xl font-semibold text-navy">{item.name}</h3>
+              <h3 className="font-display text-xl font-semibold text-navy">{item.name}</h3>
               <p className="mt-5 font-display text-2xl font-bold text-ink">{item.price}</p>
               <p className="mt-4 text-sm leading-7 text-slateText">{item.target}</p>
               <a

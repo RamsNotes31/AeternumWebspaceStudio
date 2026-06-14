@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { ArrowLeft, MessageCircle } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -6,12 +7,13 @@ type PageHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
+  children?: ReactNode;
 };
 
-export function PageHero({ eyebrow, title, description }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, children }: PageHeroProps) {
   return (
-    <main className="px-4 pb-24 pt-36">
-      <section className="mx-auto max-w-6xl rounded-[2rem] border border-borderLight bg-white p-8 shadow-ambient md:p-12">
+    <main className="gold-line-bg px-4 pb-24 pt-36">
+      <section className="cyber-gold-hero relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-borderLight bg-white p-8 shadow-ambient md:p-12">
         <Link href="/" className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-slateText transition hover:text-gold">
           <ArrowLeft className="h-4 w-4" />
           Kembali ke landing page
@@ -29,6 +31,7 @@ export function PageHero({ eyebrow, title, description }: PageHeroProps) {
           Konsultasi Project
         </a>
       </section>
+      {children}
     </main>
   );
 }
