@@ -29,10 +29,10 @@ export const trustItems = [
 ];
 
 export const stats = [
-  { value: "1", label: "featured project: TuneBoss Inventory" },
-  { value: "Modern", label: "desain website responsif dan profesional" },
-  { value: "Jelas", label: "harga, scope, dan timeline dibahas di awal" },
-  { value: "Siap Online", label: "dibantu sampai website siap digunakan" },
+  { value: "12+", label: "Project selesai", accent: "bg-gold" },
+  { value: "12+", label: "Client aktif", accent: "bg-navy" },
+  { value: "98%", label: "Kepuasan client", accent: "bg-gold" },
+  { value: "99.9%", label: "Uptime reliability", accent: "bg-emerald-400" },
 ];
 
 export const services = [
@@ -104,16 +104,16 @@ export const processSteps = [
 ];
 
 export const techStack = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Tailwind CSS",
-  "NestJS",
-  "PostgreSQL",
-  "Prisma",
-  "Supabase",
-  "Vercel",
-  "VPS/Nginx",
+  { name: "Next.js", logo: "nextdotjs" },
+  { name: "React", logo: "react" },
+  { name: "TypeScript", logo: "typescript" },
+  { name: "Tailwind CSS", logo: "tailwindcss" },
+  { name: "NestJS", logo: "nestjs" },
+  { name: "PostgreSQL", logo: "postgresql" },
+  { name: "Prisma", logo: "prisma" },
+  { name: "Supabase", logo: "supabase" },
+  { name: "Vercel", logo: "vercel" },
+  { name: "VPS/Nginx", logo: "nginx" },
 ];
 
 export const faqs = [

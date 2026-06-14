@@ -30,6 +30,7 @@ body {
   background: var(--background);
   color: var(--ink);
   font-family: var(--font-inter), Inter, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -63,6 +64,7 @@ a {
 
 .animated-gold-bg {
   background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 22% 78%, rgba(212, 175, 55, 0.08)),
     radial-gradient(circle at 16% 18%, rgba(212, 175, 55, 0.18), transparent 28%),
     radial-gradient(circle at 86% 16%, rgba(255, 255, 255, 0.08), transparent 30%),
     linear-gradient(135deg, #0f172a 0%, #111c2d 48%, #131b2e 100%);
@@ -96,6 +98,47 @@ a {
   animation: gold-glow-float 18s ease-in-out infinite alternate;
 }
 
+.cyber-gold-hero {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(212, 175, 55, 0.14), transparent 18rem),
+    radial-gradient(circle at 82% 20%, rgba(212, 175, 55, 0.12), transparent 22rem),
+    radial-gradient(circle at 50% 76%, rgba(17, 28, 45, 0.05), transparent 28rem),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.cyber-gold-hero::before,
+.cyber-gold-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cyber-gold-hero::before {
+  background-image:
+    linear-gradient(rgba(17, 28, 45, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 28, 45, 0.055) 1px, transparent 1px),
+    linear-gradient(115deg, transparent 0 28%, rgba(212, 175, 55, 0.18) 28.08%, transparent 28.34% 100%),
+    linear-gradient(115deg, transparent 0 68%, rgba(212, 175, 55, 0.12) 68.08%, transparent 68.34% 100%);
+  background-size: 36px 36px, 36px 36px, 620px 620px, 760px 760px;
+  animation: cyber-grid-drift 30s linear infinite;
+}
+
+.cyber-gold-hero::after {
+  opacity: 0.48;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  transform: translateX(-80%);
+  animation: gold-scan 9s ease-in-out infinite;
+}
+
+.hero-glyph {
+  animation: glyph-float 8s ease-in-out infinite;
+}
+
+.hero-glyph-delayed {
+  animation: glyph-float 8s ease-in-out 1.4s infinite;
+}
+
 @keyframes gold-lines-drift {
   from {
     transform: translate3d(-6%, -4%, 0);
@@ -116,18 +159,205 @@ a {
   }
 }
 
+@keyframes cyber-grid-drift {
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+
+  to {
+    background-position: 36px 36px, 36px 36px, 72px 48px, -64px 80px;
+  }
+}
+
+@keyframes gold-scan {
+  0%,
+  35% {
+    transform: translateX(-85%);
+  }
+
+  70%,
+  100% {
+    transform: translateX(85%);
+  }
+}
+
+@keyframes glyph-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(2deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animated-gold-bg::before,
-  .animated-gold-bg::after {
+  .animated-gold-bg::after,
+  .cyber-gold-hero::before,
+  .cyber-gold-hero::after,
+  .gold-line-bg,
+  .white-gold-lines::before,
+  .floating-soft,
+  .reveal-soft,
+  .walking-marquee,
+  .character-bob,
+  .character-bob-delayed,
+  .hero-glyph,
+  .hero-glyph-delayed {
     animation: none;
   }
 }
 
 .gold-line-bg {
   background-image:
+    radial-gradient(circle at 8% 18%, rgba(212, 175, 55, 0.08), transparent 22rem),
+    radial-gradient(circle at 92% 58%, rgba(17, 28, 45, 0.07), transparent 24rem),
     linear-gradient(115deg, rgba(212, 175, 55, 0.1) 0, rgba(212, 175, 55, 0.1) 1px, transparent 1px, transparent 120px),
     linear-gradient(180deg, rgba(226, 232, 240, 0.55) 0, rgba(226, 232, 240, 0.55) 1px, transparent 1px, transparent 96px);
-  background-size: 140px 140px, 96px 96px;
+  background-size: auto, auto, 140px 140px, 96px 96px;
+  animation: page-gold-grid 28s ease-in-out infinite alternate;
+}
+
+.white-gold-lines {
+  position: relative;
+  overflow: hidden;
+}
+
+.white-gold-lines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(118deg, transparent 0 24%, rgba(212, 175, 55, 0.12) 24.08%, transparent 24.35% 100%),
+    linear-gradient(118deg, transparent 0 64%, rgba(212, 175, 55, 0.08) 64.08%, transparent 64.35% 100%),
+    radial-gradient(circle at 12% 18%, rgba(212, 175, 55, 0.1), transparent 16rem),
+    radial-gradient(circle at 90% 76%, rgba(17, 28, 45, 0.05), transparent 18rem);
+  background-size: 520px 520px, 620px 620px, auto, auto;
+  opacity: 0.68;
+  animation: white-lines-drift 34s linear infinite;
+}
+
+.white-gold-lines > * {
+  position: relative;
+  z-index: 1;
+}
+
+.reveal-soft {
+  animation: reveal-soft 700ms ease both;
+}
+
+.glass-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+  box-shadow: 0 28px 90px rgba(2, 6, 23, 0.24);
+}
+
+.shine-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 0 35%, rgba(255, 255, 255, 0.32) 46%, transparent 58% 100%);
+  opacity: 0;
+  transform: translateX(-70%);
+  transition: opacity 220ms ease, transform 650ms ease;
+}
+
+.shine-card:hover::before {
+  opacity: 1;
+  transform: translateX(70%);
+}
+
+.floating-soft {
+  animation: floating-soft 7s ease-in-out infinite;
+}
+
+.walking-marquee {
+  width: max-content;
+  animation: walking-marquee 24s linear infinite;
+}
+
+.walking-marquee:hover {
+  animation-play-state: paused;
+}
+
+.character-bob {
+  animation: character-bob 5.5s ease-in-out infinite;
+}
+
+.character-bob-delayed {
+  animation: character-bob 5.5s ease-in-out 900ms infinite;
+}
+
+@keyframes page-gold-grid {
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+
+  to {
+    background-position: 0 0, 0 0, 36px 28px, 0 24px;
+  }
+}
+
+@keyframes white-lines-drift {
+  from {
+    transform: translate3d(-4%, -2%, 0);
+  }
+
+  to {
+    transform: translate3d(4%, 2%, 0);
+  }
+}
+
+@keyframes reveal-soft {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floating-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes walking-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes character-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
 }
 
 .gold-corner-lines {
