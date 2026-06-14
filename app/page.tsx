@@ -1,12 +1,5 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  CheckCircle2,
-  ExternalLink,
-  MessageCircle,
-  Minus,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2, ExternalLink, MessageCircle, Minus } from "lucide-react";
 import {
   faqs,
   featuredProject,
@@ -54,16 +47,6 @@ function Hero() {
       <div className="absolute bottom-10 left-[-10rem] h-72 w-72 rounded-full bg-white/8 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="mb-8 flex max-w-4xl flex-wrap items-center gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-white/8 px-4 py-2 text-sm text-white/75 backdrop-blur">
-            <Sparkles className="h-4 w-4 text-gold" />
-            Jasa Website Profesional
-          </span>
-          <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/55">
-            Website, landing page, dan sistem web untuk bisnis modern
-          </span>
-        </div>
-
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="mb-5 max-w-xl text-sm font-semibold uppercase tracking-[0.24em] text-gold">
