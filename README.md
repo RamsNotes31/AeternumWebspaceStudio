@@ -121,6 +121,7 @@ public/
 - This repository only contains frontend/backend source-ready project files.
 - Local planning documents, raw assets, scraping files, and proposal documents are intentionally ignored from Git.
 - The TuneBoss project is used as the first featured project showcase. Contract details and pricing are not included in the public site.
+- Public documentation is kept concise so the repository remains easy to review from GitHub.
 
 ## Next Steps
 
