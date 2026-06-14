@@ -30,30 +30,30 @@ export const trustItems = [
 
 export const stats = [
   { value: "1", label: "featured project: TuneBoss Inventory" },
-  { value: "End-to-end", label: "dari landing page sampai backend" },
-  { value: "Scope-first", label: "biar budget dan timeline jelas" },
-  { value: "Deploy-ready", label: "bisa Vercel, Supabase, atau VPS" },
+  { value: "End-to-end", label: "website, backend, database, deployment" },
+  { value: "Scope-first", label: "alur kerja dan biaya dibuat jelas" },
+  { value: "Deploy-ready", label: "siap rilis ke hosting pilihan" },
 ];
 
 export const services = [
   {
     title: "Website Company Profile",
-    description: "Untuk bisnis yang butuh profil resmi, kredibel, dan mudah dipahami calon client tanpa penjelasan panjang di chat.",
+    description: "Website profil bisnis yang rapi, cepat, dan mudah dipahami calon pelanggan saat mereka mencari informasi tentang layanan Anda.",
     icon: Globe2,
   },
   {
     title: "Landing Page Promosi",
-    description: "Untuk campaign, jasa, produk, atau iklan. Fokus pada satu pesan, satu alur baca, dan CTA yang jelas.",
+    description: "Halaman promosi untuk jasa, produk, campaign, atau iklan dengan pesan yang fokus dan tombol aksi yang jelas.",
     icon: Rocket,
   },
   {
     title: "Web App Internal",
-    description: "Untuk operasional seperti inventory, dashboard, reporting, approval, atau workflow internal yang mulai kewalahan di spreadsheet.",
+    description: "Aplikasi berbasis web untuk membantu operasional seperti inventory, dashboard, laporan, approval, dan workflow internal.",
     icon: Layers3,
   },
   {
     title: "Backend API & Database",
-    description: "Untuk project yang butuh login, data real, integrasi, PostgreSQL, API, dan fondasi teknis yang tidak asal jalan.",
+    description: "Backend, autentikasi, API, PostgreSQL, dan struktur data untuk project yang membutuhkan sistem yang lebih kuat dari website statis.",
     icon: Database,
   },
 ];
@@ -75,32 +75,32 @@ export const featuredProject = {
 
 export const packages = [
   {
-    name: "Starter Website",
-    price: "Rp2,5jt - Rp5jt",
-    target: "Cocok untuk landing page atau profil bisnis satu sampai beberapa section.",
+    name: "Starter",
+    price: "Mulai Rp600K",
+    target: "Untuk landing page sederhana, profil jasa, atau halaman promosi satu halaman.",
   },
   {
-    name: "Business Website",
-    price: "Rp5jt - Rp10jt",
-    target: "Untuk website multi halaman dengan struktur layanan, portfolio, form, dan SEO dasar.",
+    name: "Business",
+    price: "Mulai Rp1,5jt",
+    target: "Untuk website bisnis lebih lengkap dengan beberapa halaman, section layanan, portfolio, dan CTA WhatsApp.",
   },
   {
-    name: "Web App MVP",
-    price: "Rp10jt - Rp20jt",
-    target: "Untuk dashboard awal, login, database, dan workflow internal versi pertama.",
+    name: "Professional",
+    price: "Mulai Rp3jt+",
+    target: "Untuk website yang lebih serius dengan struktur konten matang, form, optimasi dasar, dan halaman yang lebih lengkap.",
   },
   {
     name: "Custom System",
-    price: "Mulai Rp15jt",
-    target: "Untuk inventory, admin dashboard, backend custom, report, role user, dan deployment.",
+    price: "By scope",
+    target: "Untuk dashboard internal, inventory, backend custom, database, laporan, role user, dan deployment.",
   },
 ];
 
 export const processSteps = [
-  { title: "Rapikan kebutuhan", description: "Kita mulai dari tujuan, contoh referensi, batasan budget, dan fitur yang benar-benar penting." },
-  { title: "Susun struktur", description: "Konten, halaman, flow, data, dan desain dibuat dulu supaya pengerjaan tidak menebak-nebak." },
-  { title: "Bangun bertahap", description: "Frontend, backend, database, dan integrasi dikerjakan per modul agar mudah direview." },
-  { title: "Test dan launch", description: "Sebelum publish, fitur dicek, tampilan dirapikan, lalu dibantu deploy ke environment yang disepakati." },
+  { title: "Konsultasi kebutuhan", description: "Kami mulai dari tujuan website, target pengunjung, referensi desain, dan fitur yang dibutuhkan." },
+  { title: "Struktur dan konten", description: "Halaman, alur baca, CTA, dan konten utama disusun agar website mudah dipahami." },
+  { title: "Desain dan development", description: "Tampilan dibuat responsif, lalu dikembangkan menjadi website yang siap digunakan." },
+  { title: "Review dan publish", description: "Website dicek bersama, direvisi sesuai scope, lalu dibantu sampai online." },
 ];
 
 export const techStack = [
@@ -147,7 +147,7 @@ export const valueProps = [
 ];
 
 export const painPoints = [
-  "Website lama terlihat kurang meyakinkan saat dibagikan ke calon client.",
-  "Masih terlalu banyak proses bisnis yang jalan lewat chat, Excel, atau catatan manual.",
-  "Punya ide sistem, tapi belum tahu harus mulai dari flow, database, atau desainnya.",
+  "Bisnis sudah berjalan, tapi belum punya website yang terlihat profesional.",
+  "Calon pelanggan sering bertanya hal yang sama karena informasi layanan belum tersusun rapi.",
+  "Butuh website yang bisa jadi pusat informasi, promosi, dan pintu masuk konsultasi.",
 ];

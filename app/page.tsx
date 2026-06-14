@@ -30,7 +30,7 @@ Deadline:`;
 
 export default function HomePage() {
   return (
-    <main className="overflow-hidden bg-background">
+    <main className="gold-line-bg overflow-hidden bg-background">
       <Hero />
       <TrustBar />
       <PainPointSection />
@@ -71,10 +71,10 @@ function Hero() {
               Aeternum Webspace Studio
             </p>
             <h1 className="max-w-4xl font-display text-5xl font-bold leading-[1.02] tracking-[-0.055em] md:text-7xl">
-              Website dan sistem web yang jelas tujuannya, rapi eksekusinya.
+              Jasa pembuatan website yang rapi, modern, dan siap dipakai bisnis.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/68">
-              Kami membantu bisnis membuat website, landing page, dashboard, dan sistem internal. Mulai dari merapikan brief, menyusun struktur, membangun frontend-backend, sampai siap deploy.
+              Aeternum Webspace Studio membantu membuat website company profile, landing page, dashboard, dan sistem web internal. Alurnya jelas dari konsultasi, desain, development, sampai website online.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -89,18 +89,18 @@ function Hero() {
                 href="/work"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 px-6 font-semibold text-white transition hover:border-gold hover:text-gold"
               >
-                Lihat cara kami bekerja
+                Lihat portfolio
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/12 bg-white/8 p-4 shadow-ambient backdrop-blur-xl md:p-6">
+          <div className="gold-corner-lines rounded-[2rem] border border-white/12 bg-white/8 p-4 shadow-ambient backdrop-blur-xl md:p-6">
             <div className="rounded-[1.5rem] border border-white/10 bg-midnight/80 p-5">
               <div className="mb-6 flex items-start justify-between gap-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Project Console</p>
-                  <p className="mt-2 font-display text-2xl font-semibold">Dari brief ke website yang bisa dipakai.</p>
+                  <p className="mt-2 font-display text-2xl font-semibold">Dari brief singkat ke website yang siap online.</p>
                 </div>
                 <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
                   Planned
@@ -122,7 +122,7 @@ function Hero() {
               </div>
 
               <div className="mt-5 rounded-2xl border border-gold/20 bg-gold/10 p-4 text-sm leading-6 text-white/75">
-                Cocok kalau Anda butuh partner yang bisa ngobrol bisnis, tapi tetap kuat di teknis.
+                Cocok untuk bisnis yang ingin website terlihat profesional tanpa proses yang membingungkan.
               </div>
             </div>
           </div>
@@ -154,7 +154,7 @@ function PainPointSection() {
         <div>
           <SectionEyebrow>Kenapa perlu dirapikan?</SectionEyebrow>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.035em] text-navy md:text-5xl">
-            Biasanya masalahnya bukan cuma “belum punya website”.
+            Website yang baik membantu calon pelanggan lebih cepat paham.
           </h2>
         </div>
         <div className="grid gap-4">
@@ -173,7 +173,7 @@ function PainPointSection() {
 function ServicesSection() {
   return (
     <section className="bg-white px-4 py-24" id="services">
-      <SectionHeader eyebrow="Layanan" title="Bukan cuma dibuat terlihat bagus, tapi dibuat supaya berguna." />
+      <SectionHeader eyebrow="Layanan" title="Pilih kebutuhan website sesuai tahap bisnis Anda." />
       <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2">
         {services.map((service) => {
           const Icon = service.icon;
@@ -202,14 +202,14 @@ function FeaturedWorkSection() {
         <div>
           <SectionEyebrow>Featured Work</SectionEyebrow>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.035em] text-navy md:text-5xl">
-            TuneBoss jadi contoh project sistem internal yang kami pajang.
+            TuneBoss sebagai contoh project sistem internal.
           </h2>
           <p className="mt-5 text-base leading-8 text-slateText">
-            Bukan semua detail project perlu ditampilkan. Yang penting calon client bisa melihat jenis masalah yang diselesaikan, fitur yang dibangun, dan cara berpikir teknisnya.
+            Project ini menunjukkan bagaimana website dapat berkembang menjadi sistem operasional: ada login, data produk, stok masuk/keluar, dan laporan dasar.
           </p>
         </div>
 
-        <article className="rounded-[2rem] border border-borderLight bg-white p-6 shadow-ambient md:p-7">
+          <article className="gold-corner-lines rounded-[2rem] border border-borderLight bg-white p-6 shadow-ambient md:p-7">
           <div className="mb-5 flex flex-wrap gap-2">
             {featuredProject.labels.map((label) => (
               <span key={label} className="rounded-full bg-midnight px-3 py-1 text-xs font-semibold text-gold">
@@ -275,7 +275,7 @@ function FeaturedWorkSection() {
 function ProcessSection() {
   return (
     <section className="syntax-gradient px-4 py-24 text-white" id="process">
-      <SectionHeader eyebrow="Proses" title="Alurnya dibuat jelas supaya project tidak melebar tanpa arah." dark />
+      <SectionHeader eyebrow="Proses" title="Proses pengerjaan dibuat jelas dari awal." dark />
       <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-4">
         {processSteps.map((step, index) => (
           <article key={step.title} className="rounded-3xl border border-white/10 bg-white/8 p-6">
@@ -292,15 +292,15 @@ function ProcessSection() {
 function PricingSection() {
   return (
     <section className="bg-white px-4 py-24" id="pricing">
-      <SectionHeader eyebrow="Pricing" title="Harga dibuat sebagai range awal, bukan jebakan angka murah." />
+      <SectionHeader eyebrow="Pricing" title="Paket awal untuk mulai membuat website." />
       <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-4">
         {packages.map((item) => {
-          const featured = item.name === "Custom System";
+          const featured = item.name === "Professional";
 
           return (
             <article
               key={item.name}
-              className={`relative rounded-3xl border bg-white p-6 shadow-ambient ${
+              className={`gold-corner-lines relative rounded-3xl border bg-white p-6 shadow-ambient ${
                 featured ? "border-gold ring-4 ring-gold/10" : "border-borderLight"
               }`}
             >
@@ -317,7 +317,7 @@ function PricingSection() {
         })}
       </div>
       <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-slateText">
-        Range di atas dipakai sebagai pegangan awal. Harga final tetap mengikuti jumlah halaman, kebutuhan backend, database, integrasi, revisi, dan timeline.
+        Harga di atas adalah estimasi awal. Biaya final tetap menyesuaikan jumlah halaman, tingkat desain, fitur, form, integrasi, dan deadline.
       </p>
     </section>
   );
@@ -326,7 +326,7 @@ function PricingSection() {
 function PrinciplesSection() {
   return (
     <section className="px-4 py-24">
-      <SectionHeader eyebrow="Cara kerja" title="Hal kecil yang bikin website terasa lebih serius." />
+      <SectionHeader eyebrow="Standar kerja" title="Detail kecil yang membuat website terlihat lebih profesional." />
       <div className="mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {valueProps.map((item) => {
           const Icon = item.icon;
@@ -363,7 +363,7 @@ function TechSection() {
 function FaqSection() {
   return (
     <section className="bg-white px-4 py-24" id="faq">
-      <SectionHeader eyebrow="FAQ" title="Pertanyaan yang biasanya muncul di awal." />
+      <SectionHeader eyebrow="FAQ" title="Pertanyaan sebelum mulai project." />
       <div className="mx-auto mt-12 grid max-w-4xl gap-4">
         {faqs.map((item) => (
           <details key={item.question} className="group rounded-3xl border border-borderLight bg-background p-6 open:border-gold open:bg-white">
@@ -387,10 +387,10 @@ function FinalCta() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">Mulai dari brief singkat</p>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.03em] md:text-5xl">
-              Ceritakan kebutuhan websitenya. Nanti kita rapikan scope-nya bareng.
+              Ceritakan kebutuhan website Anda. Kami bantu susun scope dan estimasinya.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-white/68">
-              Tidak harus langsung lengkap. Cukup mulai dari jenis bisnis, tujuan website, referensi yang disukai, dan kisaran budget.
+              Tidak perlu langsung lengkap. Cukup mulai dari jenis bisnis, tujuan website, contoh referensi, dan kisaran budget.
             </p>
           </div>
           <a
