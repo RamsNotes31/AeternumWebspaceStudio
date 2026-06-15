@@ -55,8 +55,11 @@ function Hero() {
       <div className="relative z-10 mx-auto max-w-6xl text-center">
         <div className="reveal-soft mx-auto max-w-4xl">
           <h1 className="font-display text-5xl font-bold leading-[0.98] tracking-[-0.06em] text-navy md:text-7xl lg:hidden">
-            Aeternum <span className="bg-gradient-to-r from-gold via-[#F5D46A] to-navy bg-clip-text text-transparent">Webspace</span>
-            <br />Studio
+            Aeternum
+            <br />
+            <span className="bg-gradient-to-r from-gold via-[#F5D46A] to-navy bg-clip-text text-transparent">Webspace</span>
+            <br />
+            Studio
           </h1>
           <h1 className="hidden font-display text-7xl font-bold leading-[0.98] tracking-[-0.06em] text-navy lg:block">
             <span className="hero-typewriter">

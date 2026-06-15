@@ -130,6 +130,21 @@ The Next.js config applies baseline security headers for all routes, including `
 
 `/admin` is a private dashboard foundation protected by `ADMIN_PASSWORD`. It currently shows inquiry integration status only; persistent inquiry lists require a database or external storage webhook.
 
+Webhook storage receives this JSON shape from `POST /api/inquiries`:
+
+```json
+{
+  "name": "Client name",
+  "business": "Business name",
+  "project": "Website",
+  "budget": "Rp1,5jt - Rp3jt",
+  "deadline": "2 minggu",
+  "message": "Project notes",
+  "source": "aeternum-website",
+  "submittedAt": "2026-06-15T00:00:00.000Z"
+}
+```
+
 ## Project Structure
 
 ```text

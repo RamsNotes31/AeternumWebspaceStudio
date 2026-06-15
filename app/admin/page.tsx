@@ -109,6 +109,24 @@ function AdminStatusPanel() {
           Sambungkan storage permanen untuk menyimpan inquiry, lalu dashboard ini bisa menampilkan daftar lead, status follow-up, source, dan export data.
         </p>
       </div>
+      <div className="rounded-3xl border border-borderLight bg-background p-5 md:col-span-2">
+        <p className="font-display text-xl font-bold text-navy">Webhook payload</p>
+        <p className="mt-3 text-sm leading-7 text-slateText">
+          Jika `INQUIRY_WEBHOOK_URL` diset, setiap inquiry valid dikirim sebagai JSON berisi `name`, `business`, `project`, `budget`, `deadline`, `message`, `source`, dan `submittedAt`.
+        </p>
+        <div className="mt-4 grid gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-slateText sm:grid-cols-4">
+          {[
+            "Lead identity",
+            "Project need",
+            "Budget & timeline",
+            "Submitted time",
+          ].map((item) => (
+            <span key={item} className="rounded-full border border-borderLight bg-white px-3 py-2 text-center">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
