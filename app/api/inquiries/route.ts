@@ -63,6 +63,15 @@ function isRateLimited(request: Request) {
   return false;
 }
 
+function logInquiryEvent(event: string, metadata: Record<string, string | boolean>) {
+  console.info("aeternum_inquiry_event", {
+    event,
+    source: "aeternum-website",
+    at: new Date().toISOString(),
+    ...metadata,
+  });
+}
+
 export async function POST(request: Request) {
   let payload: InquiryPayload;
 
@@ -73,10 +82,12 @@ export async function POST(request: Request) {
   }
 
   if (payload.website?.trim()) {
+    logInquiryEvent("spam_filtered", { reason: "honeypot" });
     return NextResponse.json({ accepted: true, spamFiltered: true }, { status: 202 });
   }
 
   if (isRateLimited(request)) {
+    logInquiryEvent("rate_limited", { reason: "ip_window" });
     return NextResponse.json(
       { error: "Terlalu banyak percobaan. Silakan coba lagi beberapa menit lagi." },
       { status: 429 },
@@ -112,6 +123,12 @@ Deadline: ${inquiry.deadline}
 Kebutuhan: ${inquiry.message}`;
 
   const webhook = await forwardInquiryToWebhook(inquiry);
+
+  logInquiryEvent("accepted", {
+    project: inquiry.project,
+    webhookConfigured: webhook.configured,
+    webhookDelivered: webhook.delivered,
+  });
 
   return NextResponse.json({
     whatsappUrl: getWhatsAppUrl(message),

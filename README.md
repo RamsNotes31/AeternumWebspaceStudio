@@ -104,22 +104,39 @@ NEXT_PUBLIC_WHATSAPP_NUMBER=6289697100997
 NEXT_PUBLIC_GA_MEASUREMENT_ID=
 NEXT_PUBLIC_PLAUSIBLE_DOMAIN=
 INQUIRY_WEBHOOK_URL=
+ADMIN_PASSWORD=
 ```
 
 `NEXT_PUBLIC_WHATSAPP_NUMBER` is used by all WhatsApp CTA links. Use international format without `+`.
 `NEXT_PUBLIC_GA_MEASUREMENT_ID` is optional. When set, Google Analytics loads automatically.
 `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is optional. When set, Plausible loads automatically for the configured domain.
 `INQUIRY_WEBHOOK_URL` is optional. When set, `POST /api/inquiries` forwards validated brief data to an external webhook such as Google Apps Script, Make, Zapier, Airtable, or a CRM.
+`ADMIN_PASSWORD` enables the private `/admin` dashboard foundation. Leave empty to keep admin login disabled.
 The inquiry endpoint includes a hidden honeypot field and a small in-memory rate limit to reduce low-effort spam.
 
 ## Analytics Events
 
 CTA elements use `data-event` attributes. The global event tracker forwards clicks to `window.gtag`, `window.dataLayer`, or `window.plausible` when those analytics providers are installed. Add only one provider env if you want a single analytics source.
 
+## Production Hardening
+
+The Next.js config applies baseline security headers for all routes, including `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, and production-only `Strict-Transport-Security`.
+
+## Inquiry Observability
+
+`POST /api/inquiries` writes minimal server logs for accepted submissions, honeypot filtering, and rate limiting. Logs avoid storing full names, business details, or message content.
+
+## Admin Dashboard
+
+`/admin` is a private dashboard foundation protected by `ADMIN_PASSWORD`. It currently shows inquiry integration status only; persistent inquiry lists require a database or external storage webhook.
+
 ## Project Structure
 
 ```text
 app/
+  admin/page.tsx
+  api/admin/login/route.ts
+  api/admin/logout/route.ts
   api/inquiries/route.ts
   page.tsx
   layout.tsx
@@ -143,6 +160,7 @@ components/
 content/
   site.ts
 lib/
+  admin-auth.ts
   whatsapp.ts
 public/
   assets/logo/
@@ -159,6 +177,6 @@ public/
 ## Next Steps
 
 - Connect `INQUIRY_WEBHOOK_URL` to Google Sheets, Airtable, Make, Zapier, or a CRM for persistent inquiry storage.
-- Add database and admin dashboard in a later phase.
+- Add persistent inquiry storage for the admin dashboard.
 - Replace disabled social icons in the footer with official Aeternum social media links.
 - Set production env values in Vercel before deployment.

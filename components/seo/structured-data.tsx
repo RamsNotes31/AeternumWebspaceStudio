@@ -1,3 +1,5 @@
+import { faqs } from "@/content/site";
+
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 const structuredData = {
@@ -26,6 +28,18 @@ const structuredData = {
       publisher: {
         "@id": `${baseUrl}/#business`,
       },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${baseUrl}/#faq`,
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     },
   ],
 };
