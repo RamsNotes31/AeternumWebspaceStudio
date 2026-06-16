@@ -130,6 +130,8 @@ The Next.js config applies baseline security headers for all routes, including `
 
 `/admin` is a private dashboard foundation protected by `ADMIN_PASSWORD`. It currently shows inquiry integration status only; persistent inquiry lists require a database or external storage webhook.
 
+For MVP storage, use the Google Sheets webhook guide in `docs/google-sheets-webhook.md` and the Apps Script template in `scripts/google-sheets-inquiry-webhook.js`.
+
 Webhook storage receives this JSON shape from `POST /api/inquiries`:
 
 ```json
@@ -174,12 +176,16 @@ components/
   seo/
 content/
   site.ts
+docs/
+  google-sheets-webhook.md
 lib/
   admin-auth.ts
   whatsapp.ts
 public/
   assets/logo/
   assets/projects/
+scripts/
+  google-sheets-inquiry-webhook.js
 ```
 
 ## Notes
@@ -191,7 +197,7 @@ public/
 
 ## Next Steps
 
-- Connect `INQUIRY_WEBHOOK_URL` to Google Sheets, Airtable, Make, Zapier, or a CRM for persistent inquiry storage.
-- Add persistent inquiry storage for the admin dashboard.
+- Deploy the Google Sheets Apps Script webhook and set `INQUIRY_WEBHOOK_URL` in Vercel.
+- Add inquiry list reading to the admin dashboard after Sheets or another storage is connected.
 - Replace disabled social icons in the footer with official Aeternum social media links.
 - Set production env values in Vercel before deployment.
