@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CheckCircle2, Lock, LogOut, ShieldCheck, Webhook } from "lucide-react";
 import { isAdminAuthenticated, isAdminConfigured } from "@/lib/admin-auth";
+import { getStoredInquiries, type StoredInquiry } from "@/lib/inquiries";
 
 export const metadata: Metadata = {
   title: "Admin | Aeternum Webspace Studio",
@@ -81,13 +82,14 @@ function AdminLoginForm() {
   );
 }
 
-function AdminStatusPanel() {
+async function AdminStatusPanel() {
   const hasWebhook = Boolean(process.env.INQUIRY_WEBHOOK_URL);
+  const storage = await getStoredInquiries();
   const items = [
     ["Inquiry API", "Aktif", true],
     ["WhatsApp Redirect", "Aktif", true],
     ["Webhook Storage", hasWebhook ? "Tersambung" : "Belum diset", hasWebhook],
-    ["Persistent Database", "Belum disambungkan", false],
+    ["Inquiry List", storage.configured ? `${storage.inquiries.length} inquiry terbaru` : "Belum diset", storage.configured],
   ] as const;
 
   return (
@@ -106,9 +108,10 @@ function AdminStatusPanel() {
       <div className="rounded-3xl border border-borderLight bg-white p-5 md:col-span-2">
         <p className="font-display text-xl font-bold text-navy">Next admin milestone</p>
         <p className="mt-3 text-sm leading-7 text-slateText">
-          Sambungkan storage permanen untuk menyimpan inquiry, lalu dashboard ini bisa menampilkan daftar lead, status follow-up, source, dan export data.
+          Tambahkan update status lead langsung dari dashboard jika workflow follow-up sudah stabil.
         </p>
       </div>
+      <InquiryTable inquiries={storage.inquiries} error={storage.error} />
       <div className="rounded-3xl border border-borderLight bg-background p-5 md:col-span-2">
         <p className="font-display text-xl font-bold text-navy">Webhook payload</p>
         <p className="mt-3 text-sm leading-7 text-slateText">
@@ -128,5 +131,46 @@ function AdminStatusPanel() {
         </div>
       </div>
     </div>
+  );
+}
+
+function InquiryTable({ inquiries, error }: { inquiries: StoredInquiry[]; error: string }) {
+  return (
+    <div className="rounded-3xl border border-borderLight bg-white p-5 md:col-span-2">
+      <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="font-display text-xl font-bold text-navy">Inquiry terbaru</p>
+          <p className="mt-2 text-sm text-slateText">Menampilkan maksimal 25 lead terbaru dari storage Google Sheets.</p>
+        </div>
+        <span className="rounded-full border border-borderLight bg-background px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slateText">
+          {inquiries.length} lead
+        </span>
+      </div>
+      {error ? <p className="mt-5 rounded-2xl bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-900">{error}</p> : null}
+      <div className="mt-5 grid gap-3">
+        {inquiries.length > 0 ? inquiries.map((item) => <InquiryCard key={`${item.submittedAt}-${item.name}`} inquiry={item} />) : null}
+        {!error && inquiries.length === 0 ? <p className="rounded-2xl bg-background px-4 py-3 text-sm text-slateText">Belum ada inquiry tersimpan.</p> : null}
+      </div>
+    </div>
+  );
+}
+
+function InquiryCard({ inquiry }: { inquiry: StoredInquiry }) {
+  return (
+    <article className="rounded-2xl border border-borderLight bg-background p-4">
+      <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p className="font-display text-lg font-bold text-navy">{inquiry.name}</p>
+          <p className="mt-1 text-sm text-slateText">{inquiry.business} - {inquiry.project}</p>
+        </div>
+        <span className="w-fit rounded-full bg-gold/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-gold">{inquiry.status}</span>
+      </div>
+      <p className="mt-3 text-sm leading-7 text-slateText">{inquiry.message}</p>
+      <div className="mt-4 grid gap-2 text-xs font-semibold text-slateText sm:grid-cols-3">
+        <span>Budget: {inquiry.budget}</span>
+        <span>Deadline: {inquiry.deadline}</span>
+        <span>{inquiry.submittedAt}</span>
+      </div>
+    </article>
   );
 }

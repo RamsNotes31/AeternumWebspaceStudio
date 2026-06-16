@@ -104,6 +104,8 @@ NEXT_PUBLIC_WHATSAPP_NUMBER=6289697100997
 NEXT_PUBLIC_GA_MEASUREMENT_ID=
 NEXT_PUBLIC_PLAUSIBLE_DOMAIN=
 INQUIRY_WEBHOOK_URL=
+INQUIRY_READ_URL=
+INQUIRY_WEBHOOK_SECRET=
 ADMIN_PASSWORD=
 ```
 
@@ -111,6 +113,8 @@ ADMIN_PASSWORD=
 `NEXT_PUBLIC_GA_MEASUREMENT_ID` is optional. When set, Google Analytics loads automatically.
 `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is optional. When set, Plausible loads automatically for the configured domain.
 `INQUIRY_WEBHOOK_URL` is optional. When set, `POST /api/inquiries` forwards validated brief data to an external webhook such as Google Apps Script, Make, Zapier, Airtable, or a CRM.
+`INQUIRY_READ_URL` is optional. When set, `/admin` reads stored inquiries from this endpoint; otherwise it falls back to `INQUIRY_WEBHOOK_URL`.
+`INQUIRY_WEBHOOK_SECRET` is optional but recommended for Google Sheets storage. It is sent server-side only and must match the Apps Script property with the same name.
 `ADMIN_PASSWORD` enables the private `/admin` dashboard foundation. Leave empty to keep admin login disabled.
 The inquiry endpoint includes a hidden honeypot field and a small in-memory rate limit to reduce low-effort spam.
 
@@ -128,7 +132,7 @@ The Next.js config applies baseline security headers for all routes, including `
 
 ## Admin Dashboard
 
-`/admin` is a private dashboard foundation protected by `ADMIN_PASSWORD`. It currently shows inquiry integration status only; persistent inquiry lists require a database or external storage webhook.
+`/admin` is a private dashboard protected by `ADMIN_PASSWORD`. It shows inquiry integration status and can list recent inquiries from Google Sheets when the Apps Script read endpoint is deployed.
 
 For MVP storage, use the Google Sheets webhook guide in `docs/google-sheets-webhook.md` and the Apps Script template in `scripts/google-sheets-inquiry-webhook.js`.
 

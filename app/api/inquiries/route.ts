@@ -22,6 +22,7 @@ function clean(value?: string) {
 
 async function forwardInquiryToWebhook(inquiry: Record<string, string>) {
   const webhookUrl = process.env.INQUIRY_WEBHOOK_URL;
+  const webhookSecret = process.env.INQUIRY_WEBHOOK_SECRET;
 
   if (!webhookUrl) {
     return { configured: false, delivered: false };
@@ -31,7 +32,7 @@ async function forwardInquiryToWebhook(inquiry: Record<string, string>) {
     const response = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(inquiry),
+      body: JSON.stringify(webhookSecret ? { ...inquiry, secret: webhookSecret } : inquiry),
     });
 
     return { configured: true, delivered: response.ok };
