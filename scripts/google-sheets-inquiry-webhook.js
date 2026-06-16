@@ -9,6 +9,10 @@ function doPost(event) {
     return jsonResponse({ ok: false, error: "Unauthorized" }, 401);
   }
 
+  if (payload.action === "updateStatus") {
+    return updateInquiryStatus(sheet, payload);
+  }
+
   sheet.appendRow([
     payload.submittedAt || new Date().toISOString(),
     payload.name || "-",
@@ -31,8 +35,12 @@ function doGet(event) {
   }
 
   const sheet = getInquirySheet();
-  const rows = sheet.getDataRange().getValues().slice(1).reverse().slice(0, 25);
-  const inquiries = rows.map((row) => ({
+  const rows = sheet.getDataRange().getValues().slice(1)
+    .map((row, index) => ({ row, rowNumber: index + 2 }))
+    .reverse()
+    .slice(0, 25);
+  const inquiries = rows.map(({ row, rowNumber }) => ({
+    rowNumber,
     submittedAt: row[0] || "-",
     name: row[1] || "-",
     business: row[2] || "-",
@@ -46,6 +54,19 @@ function doGet(event) {
   }));
 
   return jsonResponse({ ok: true, inquiries });
+}
+
+function updateInquiryStatus(sheet, payload) {
+  const rowNumber = Number(payload.rowNumber);
+
+  if (!rowNumber || rowNumber < 2 || rowNumber > sheet.getLastRow()) {
+    return jsonResponse({ ok: false, error: "Invalid row" });
+  }
+
+  sheet.getRange(rowNumber, 9).setValue(payload.status || "New");
+  sheet.getRange(rowNumber, 10).setValue(payload.notes || "");
+
+  return jsonResponse({ ok: true });
 }
 
 function getInquirySheet() {

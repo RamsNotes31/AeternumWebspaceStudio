@@ -156,6 +156,8 @@ function InquiryTable({ inquiries, error }: { inquiries: StoredInquiry[]; error:
 }
 
 function InquiryCard({ inquiry }: { inquiry: StoredInquiry }) {
+  const statuses = ["New", "Contacted", "Quoted", "Won", "Lost"];
+
   return (
     <article className="rounded-2xl border border-borderLight bg-background p-4">
       <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
@@ -171,6 +173,24 @@ function InquiryCard({ inquiry }: { inquiry: StoredInquiry }) {
         <span>Deadline: {inquiry.deadline}</span>
         <span>{inquiry.submittedAt}</span>
       </div>
+      <form action="/api/admin/inquiries/status" method="post" className="mt-4 grid gap-3 rounded-2xl border border-borderLight bg-white p-3 md:grid-cols-[180px_1fr_auto] md:items-end">
+        <input type="hidden" name="rowNumber" value={inquiry.rowNumber} />
+        <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slateText">
+          Status
+          <select name="status" defaultValue={inquiry.status} className="min-h-11 rounded-xl border border-borderLight bg-background px-3 text-sm font-semibold normal-case tracking-normal text-navy outline-none focus:border-gold">
+            {statuses.map((status) => (
+              <option key={status} value={status}>{status}</option>
+            ))}
+          </select>
+        </label>
+        <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slateText">
+          Notes
+          <input name="notes" defaultValue={inquiry.notes} className="min-h-11 rounded-xl border border-borderLight bg-background px-3 text-sm font-medium normal-case tracking-normal text-navy outline-none focus:border-gold" placeholder="Catatan follow-up" />
+        </label>
+        <button className="min-h-11 rounded-xl bg-navy px-4 text-sm font-bold text-white transition hover:bg-midnight">
+          Update
+        </button>
+      </form>
     </article>
   );
 }

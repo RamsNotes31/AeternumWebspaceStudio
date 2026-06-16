@@ -47,6 +47,18 @@ https://script.google.com/macros/s/.../exec?secret=shared-secret-from-env
 
 It returns the latest 25 inquiries as JSON for `/admin`.
 
+## Status Workflow
+
+The admin dashboard can update these lead statuses through the same Apps Script URL:
+
+- `New`
+- `Contacted`
+- `Quoted`
+- `Won`
+- `Lost`
+
+Updates write to the `Status` and `Notes` columns in the `Inquiries` sheet.
+
 ## Notes
 
 - The Apps Script URL is treated like a server webhook, not a public client key.
