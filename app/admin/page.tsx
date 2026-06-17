@@ -85,6 +85,7 @@ function AdminLoginForm() {
 async function AdminStatusPanel() {
   const hasWebhook = Boolean(process.env.INQUIRY_WEBHOOK_URL);
   const storage = await getStoredInquiries();
+  const stats = getInquiryStats(storage.inquiries);
   const items = [
     ["Inquiry API", "Aktif", true],
     ["WhatsApp Redirect", "Aktif", true],
@@ -108,9 +109,10 @@ async function AdminStatusPanel() {
       <div className="rounded-3xl border border-borderLight bg-white p-5 md:col-span-2">
         <p className="font-display text-xl font-bold text-navy">Next admin milestone</p>
         <p className="mt-3 text-sm leading-7 text-slateText">
-          Tambahkan update status lead langsung dari dashboard jika workflow follow-up sudah stabil.
+          Statistik dihitung dari maksimal 25 inquiry terbaru yang dibaca dari Google Sheets.
         </p>
       </div>
+      <InquiryStats stats={stats} />
       <InquiryTable inquiries={storage.inquiries} error={storage.error} />
       <div className="rounded-3xl border border-borderLight bg-background p-5 md:col-span-2">
         <p className="font-display text-xl font-bold text-navy">Webhook payload</p>
@@ -129,6 +131,68 @@ async function AdminStatusPanel() {
             </span>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function getInquiryStats(inquiries: StoredInquiry[]) {
+  const today = new Date().toISOString().slice(0, 10);
+  const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  const statusCounts = inquiries.reduce<Record<string, number>>((counts, inquiry) => {
+    counts[inquiry.status] = (counts[inquiry.status] || 0) + 1;
+    return counts;
+  }, {});
+  const projectCounts = inquiries.reduce<Record<string, number>>((counts, inquiry) => {
+    counts[inquiry.project] = (counts[inquiry.project] || 0) + 1;
+    return counts;
+  }, {});
+  const topProject = Object.entries(projectCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || "-";
+  const won = statusCounts.Won || 0;
+
+  return {
+    total: inquiries.length,
+    today: inquiries.filter((inquiry) => inquiry.submittedAt.slice(0, 10) === today).length,
+    week: inquiries.filter((inquiry) => Date.parse(inquiry.submittedAt) >= weekAgo).length,
+    winRate: inquiries.length ? `${Math.round((won / inquiries.length) * 100)}%` : "0%",
+    latest: inquiries[0]?.submittedAt || "-",
+    topProject,
+    statusCounts,
+  };
+}
+
+function InquiryStats({ stats }: { stats: ReturnType<typeof getInquiryStats> }) {
+  const cards = [
+    ["Total lead", String(stats.total)],
+    ["Hari ini", String(stats.today)],
+    ["7 hari", String(stats.week)],
+    ["Win rate", stats.winRate],
+    ["Top project", stats.topProject],
+    ["Latest", stats.latest],
+  ];
+
+  return (
+    <div className="rounded-3xl border border-borderLight bg-white p-5 md:col-span-2">
+      <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="font-display text-xl font-bold text-navy">Inquiry statistics</p>
+          <p className="mt-2 text-sm text-slateText">Ringkasan lead dari data terbaru yang terbaca di Google Sheets.</p>
+        </div>
+      </div>
+      <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {cards.map(([label, value]) => (
+          <div key={label} className="rounded-2xl border border-borderLight bg-background p-4">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-slateText">{label}</p>
+            <p className="mt-2 font-display text-2xl font-bold text-navy">{value}</p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {['New', 'Contacted', 'Quoted', 'Won', 'Lost'].map((status) => (
+          <span key={status} className="rounded-full border border-borderLight bg-background px-3 py-1 text-xs font-bold text-slateText">
+            {status}: {stats.statusCounts[status] || 0}
+          </span>
+        ))}
       </div>
     </div>
   );
