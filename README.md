@@ -135,6 +135,7 @@ The Next.js config applies baseline security headers for all routes, including `
 `/admin` is a private dashboard protected by `ADMIN_PASSWORD`. It shows inquiry integration status and can list recent inquiries from Google Sheets when the Apps Script read endpoint is deployed.
 Admins can update inquiry status to `New`, `Contacted`, `Quoted`, `Won`, or `Lost`, and store follow-up notes back to Google Sheets.
 The dashboard also shows lightweight stats from the latest 25 inquiries: total leads, today, 7-day count, win rate, latest inquiry, top project, and status counts.
+The Google Sheets Apps Script can send email notifications for new inquiries when `NOTIFICATION_EMAIL` is set in Script Properties.
 
 For MVP storage, use the Google Sheets webhook guide in `docs/google-sheets-webhook.md` and the Apps Script template in `scripts/google-sheets-inquiry-webhook.js`.
 

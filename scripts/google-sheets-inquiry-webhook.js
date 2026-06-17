@@ -25,6 +25,7 @@ function doPost(event) {
     "New",
     "",
   ]);
+  sendInquiryNotification(payload);
 
   return jsonResponse({ ok: true });
 }
@@ -83,6 +84,29 @@ function getInquirySheet() {
 function isValidSecret(secret) {
   const expected = PropertiesService.getScriptProperties().getProperty("INQUIRY_WEBHOOK_SECRET");
   return !expected || secret === expected;
+}
+
+function sendInquiryNotification(payload) {
+  const email = PropertiesService.getScriptProperties().getProperty("NOTIFICATION_EMAIL");
+
+  if (!email) {
+    return;
+  }
+
+  const subject = `[Aeternum Inquiry] ${payload.project || "Project baru"} - ${payload.business || payload.name || "Lead baru"}`;
+  const body = [
+    "Ada inquiry baru dari website Aeternum.",
+    "",
+    `Nama: ${payload.name || "-"}`,
+    `Bisnis: ${payload.business || "-"}`,
+    `Project: ${payload.project || "-"}`,
+    `Budget: ${payload.budget || "-"}`,
+    `Deadline: ${payload.deadline || "-"}`,
+    `Kebutuhan: ${payload.message || "-"}`,
+    `Submitted At: ${payload.submittedAt || new Date().toISOString()}`,
+  ].join("\n");
+
+  MailApp.sendEmail(email, subject, body);
 }
 
 function jsonResponse(payload) {

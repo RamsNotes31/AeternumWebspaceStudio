@@ -13,11 +13,12 @@ Use Google Sheets as the first persistent storage for Aeternum website inquiries
 7. Set `Who has access` to `Anyone`.
 8. Open `Project Settings` in Apps Script.
 9. Add Script property `INQUIRY_WEBHOOK_SECRET` with the same value you will set in Vercel.
-10. Deploy and copy the Web app URL.
-11. Set that URL as `INQUIRY_WEBHOOK_URL` in Vercel Production env.
-12. Optional: set the same URL as `INQUIRY_READ_URL`. If empty, the admin dashboard reads from `INQUIRY_WEBHOOK_URL`.
-13. Set `INQUIRY_WEBHOOK_SECRET` in Vercel Production env.
-14. Redeploy production so the new env is active.
+10. Optional: add Script property `NOTIFICATION_EMAIL` to receive an email for every new inquiry.
+11. Deploy and copy the Web app URL.
+12. Set that URL as `INQUIRY_WEBHOOK_URL` in Vercel Production env.
+13. Optional: set the same URL as `INQUIRY_READ_URL`. If empty, the admin dashboard reads from `INQUIRY_WEBHOOK_URL`.
+14. Set `INQUIRY_WEBHOOK_SECRET` in Vercel Production env.
+15. Redeploy production so the new env is active.
 
 ## Payload
 
@@ -58,6 +59,16 @@ The admin dashboard can update these lead statuses through the same Apps Script 
 - `Lost`
 
 Updates write to the `Status` and `Notes` columns in the `Inquiries` sheet.
+
+## Email Notification
+
+Set Apps Script property `NOTIFICATION_EMAIL` to an admin email address. New inquiry submissions will send a short email summary. Status updates do not send email.
+
+## Credential Rotation
+
+- Rotate `INQUIRY_WEBHOOK_SECRET` in both Apps Script properties and Vercel env.
+- Rotate `ADMIN_PASSWORD` in Vercel env if it has been shared.
+- Revoke exposed Vercel tokens from the Vercel dashboard and create a fresh token when needed.
 
 ## Notes
 
