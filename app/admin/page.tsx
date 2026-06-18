@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import { CheckCircle2, Lock, LogOut, ShieldCheck, Webhook } from "lucide-react";
+import Image from "next/image";
+import type { ReactNode } from "react";
+import { CheckCircle2, ImageIcon, Lock, LogOut, PlusCircle, Save, ShieldCheck, Trash2, Webhook } from "lucide-react";
+import { createBlogAction, deleteBlogAction, updateBlogAction } from "@/app/admin/blog-actions";
 import { isAdminAuthenticated, isAdminConfigured } from "@/lib/admin-auth";
+import { getStoredBlogs, type BlogPost } from "@/lib/blogs";
 import { getStoredInquiries, type StoredInquiry } from "@/lib/inquiries";
 
 export const metadata: Metadata = {
@@ -85,6 +89,7 @@ function AdminLoginForm() {
 async function AdminStatusPanel() {
   const hasWebhook = Boolean(process.env.INQUIRY_WEBHOOK_URL);
   const storage = await getStoredInquiries();
+  const blogs = await getStoredBlogs({ includeDrafts: true });
   const stats = getInquiryStats(storage.inquiries);
   const items = [
     ["Inquiry API", "Aktif", true],
@@ -114,6 +119,7 @@ async function AdminStatusPanel() {
       </div>
       <InquiryStats stats={stats} />
       <InquiryTable inquiries={storage.inquiries} error={storage.error} />
+      <BlogManager blogs={blogs} />
       <div className="rounded-3xl border border-borderLight bg-background p-5 md:col-span-2">
         <p className="font-display text-xl font-bold text-navy">Webhook payload</p>
         <p className="mt-3 text-sm leading-7 text-slateText">
@@ -135,6 +141,141 @@ async function AdminStatusPanel() {
     </div>
   );
 }
+
+function BlogManager({ blogs }: { blogs: BlogPost[] }) {
+  return (
+    <div id="blog-manager" className="rounded-3xl border border-borderLight bg-white p-5 md:col-span-2">
+      <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="font-display text-xl font-bold text-navy">Blog manager</p>
+          <p className="mt-2 text-sm text-slateText">
+            Tambah, ubah, publish/unpublish, dan upload gambar blog yang tampil di halaman `/blog`.
+          </p>
+        </div>
+        <span className="rounded-full border border-borderLight bg-background px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slateText">
+          {blogs.length} artikel
+        </span>
+      </div>
+
+      <form action={createBlogAction} className="mt-6 grid gap-4 rounded-3xl border border-borderLight bg-background p-5">
+        <div className="flex items-center gap-2">
+          <PlusCircle className="h-5 w-5 text-gold" />
+          <p className="font-display text-lg font-bold text-navy">Tambah blog baru</p>
+        </div>
+        <BlogFields submitLabel="Tambah Blog" />
+      </form>
+
+      <div className="mt-6 grid gap-4">
+        {blogs.map((blog) => (
+          <article key={blog.id} className="rounded-3xl border border-borderLight bg-background p-5">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+              <div className="flex gap-4">
+                <BlogImagePreview blog={blog} />
+                <div>
+                  <span className="w-fit rounded-full bg-gold/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-gold">
+                    {blog.published ? "Published" : "Draft"}
+                  </span>
+                  <h3 className="mt-3 font-display text-xl font-bold text-navy">{blog.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slateText">{blog.excerpt}</p>
+                </div>
+              </div>
+              <form action={deleteBlogAction}>
+                <input type="hidden" name="id" value={blog.id} />
+                <button className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-red-200 px-4 text-sm font-bold text-red-600 transition hover:bg-red-50">
+                  <Trash2 className="h-4 w-4" />
+                  Hapus
+                </button>
+              </form>
+            </div>
+
+            <form action={updateBlogAction} className="mt-5 grid gap-4 rounded-2xl border border-borderLight bg-white p-4">
+              <input type="hidden" name="id" value={blog.id} />
+              <BlogFields blog={blog} submitLabel="Simpan Perubahan" />
+            </form>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function BlogFields({ blog, submitLabel }: { blog?: BlogPost; submitLabel: string }) {
+  return (
+    <>
+      <div className="grid gap-4 md:grid-cols-2">
+        <AdminField label="Judul">
+          <input name="title" defaultValue={blog?.title} required className={adminInputClass} placeholder="Judul artikel blog" />
+        </AdminField>
+        <AdminField label="Slug URL">
+          <input name="slug" defaultValue={blog?.slug} className={adminInputClass} placeholder="checklist-website-bisnis" />
+        </AdminField>
+        <AdminField label="Kategori">
+          <input name="category" defaultValue={blog?.category} required className={adminInputClass} placeholder="Website Strategy" />
+        </AdminField>
+        <AdminField label="Tanggal">
+          <input name="date" defaultValue={blog?.date} className={adminInputClass} placeholder="18 Juni 2026" />
+        </AdminField>
+        <AdminField label="Estimasi baca">
+          <input name="readTime" defaultValue={blog?.readTime} className={adminInputClass} placeholder="4 menit baca" />
+        </AdminField>
+      </div>
+      <AdminField label="Ringkasan">
+        <textarea name="excerpt" defaultValue={blog?.excerpt} required rows={3} className={adminTextareaClass} placeholder="Ringkasan singkat untuk kartu blog" />
+      </AdminField>
+      <AdminField label="Isi blog">
+        <textarea name="content" defaultValue={blog?.content} rows={5} className={adminTextareaClass} placeholder="Isi atau catatan utama blog" />
+      </AdminField>
+      <AdminField label="Highlights">
+        <textarea name="highlights" defaultValue={blog?.highlights.join(", ")} rows={2} className={adminTextareaClass} placeholder="Pisahkan dengan koma atau baris baru" />
+      </AdminField>
+      <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+        <AdminField label="Gambar blog">
+          <input name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif" className="min-h-12 rounded-2xl border border-borderLight bg-white px-4 py-3 text-sm outline-none transition file:mr-4 file:rounded-full file:border-0 file:bg-gold file:px-4 file:py-2 file:font-bold file:text-navy focus:border-gold" />
+        </AdminField>
+        <label className="flex min-h-12 items-center gap-2 rounded-2xl border border-borderLight bg-white px-4 text-sm font-bold text-navy">
+          <input name="published" type="checkbox" defaultChecked={blog?.published ?? true} className="h-4 w-4 accent-gold" />
+          Publish
+        </label>
+      </div>
+      <button className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-navy px-5 font-bold text-white transition hover:bg-midnight hover:shadow-gold md:w-fit">
+        <Save className="h-4 w-4" />
+        {submitLabel}
+      </button>
+    </>
+  );
+}
+
+function BlogImagePreview({ blog }: { blog: BlogPost }) {
+  if (blog.image) {
+    return (
+      <Image
+        src={blog.image}
+        alt={blog.title}
+        width={96}
+        height={96}
+        className="h-24 w-24 shrink-0 rounded-2xl border border-borderLight bg-white object-cover"
+      />
+    );
+  }
+
+  return (
+    <div className="grid h-24 w-24 shrink-0 place-items-center rounded-2xl border border-borderLight bg-white text-gold">
+      <ImageIcon className="h-7 w-7" />
+    </div>
+  );
+}
+
+function AdminField({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.16em] text-slateText">
+      {label}
+      {children}
+    </label>
+  );
+}
+
+const adminInputClass = "min-h-12 rounded-2xl border border-borderLight bg-white px-4 text-sm font-medium normal-case tracking-normal text-navy outline-none transition focus:border-gold";
+const adminTextareaClass = "rounded-2xl border border-borderLight bg-white px-4 py-3 text-sm font-medium leading-7 normal-case tracking-normal text-navy outline-none transition focus:border-gold";
 
 function getInquiryStats(inquiries: StoredInquiry[]) {
   const today = new Date().toISOString().slice(0, 10);

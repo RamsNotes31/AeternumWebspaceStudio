@@ -417,6 +417,7 @@ function TechSection() {
             {techStack.map((item) => (
               <div key={item.name} className="shine-card flex items-center gap-4 rounded-2xl border border-borderLight bg-background p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gold/45 hover:bg-white hover:shadow-ambient">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-borderLight bg-white">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- Simple Icons CDN serves tiny remote SVG logos. */}
                   <img
                     src={`https://cdn.simpleicons.org/${item.logo}/1E3A5F`}
                     alt=""

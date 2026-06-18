@@ -17,6 +17,7 @@ export const navItems = [
   { label: "Layanan", href: "/services" },
   { label: "Karya", href: "/work" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
   { label: "Tentang", href: "/about" },
   { label: "Kontak", href: "/contact" },
 ];

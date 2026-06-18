@@ -1,0 +1,77 @@
+[
+  {
+    "id": "test-slug-1781802708037",
+    "slug": "test-slug",
+    "title": "test judul",
+    "category": "test kategori",
+    "date": "18 Juni 2026",
+    "readTime": "4 menit baca",
+    "excerpt": "test ringkasan",
+    "content": "test isi",
+    "image": "/assets/blog/1781802708038-favicon.jpg",
+    "published": true,
+    "highlights": [
+      "test",
+      "highligh"
+    ],
+    "createdAt": "2026-06-18T17:11:48.036Z",
+    "updatedAt": "2026-06-18T17:11:48.036Z"
+  },
+  {
+    "id": "checklist-website-bisnis-pertama",
+    "slug": "checklist-website-bisnis-pertama",
+    "title": "Checklist sebelum membuat website bisnis pertama",
+    "category": "Website Strategy",
+    "date": "12 Juni 2026",
+    "readTime": "4 menit baca",
+    "excerpt": "Hal yang perlu disiapkan sebelum mulai membuat website: tujuan halaman, target pelanggan, struktur konten, aset brand, dan CTA utama.",
+    "content": "Website bisnis yang baik dimulai dari tujuan yang jelas. Tentukan halaman utama, siapa calon pelanggan yang dituju, penawaran apa yang ingin dijelaskan, dan aksi apa yang ingin diarahkan setelah pengunjung membaca halaman.",
+    "image": "",
+    "published": true,
+    "highlights": [
+      "Tujuan website",
+      "Konten awal",
+      "CTA konsultasi"
+    ],
+    "createdAt": "2026-06-12T00:00:00.000Z",
+    "updatedAt": "2026-06-18T17:10:04.120Z"
+  },
+  {
+    "id": "landing-page-fokus-satu-aksi",
+    "slug": "landing-page-fokus-satu-aksi",
+    "title": "Kenapa landing page harus fokus pada satu aksi utama",
+    "category": "Landing Page",
+    "date": "10 Juni 2026",
+    "readTime": "3 menit baca",
+    "excerpt": "Landing page yang efektif membantu calon pelanggan memahami penawaran dengan cepat dan diarahkan ke satu aksi yang paling bernilai.",
+    "content": "Semakin banyak pilihan yang diberikan, semakin besar peluang pengunjung menunda keputusan. Landing page yang fokus menjaga pesan tetap ringkas, visual tetap terarah, dan CTA mudah ditemukan.",
+    "image": "",
+    "published": true,
+    "highlights": [
+      "Pesan jelas",
+      "Alur singkat",
+      "Konversi WA"
+    ],
+    "createdAt": "2026-06-10T00:00:00.000Z",
+    "updatedAt": "2026-06-10T00:00:00.000Z"
+  },
+  {
+    "id": "bisnis-butuh-dashboard-internal",
+    "slug": "bisnis-butuh-dashboard-internal",
+    "title": "Kapan bisnis mulai butuh dashboard atau sistem internal",
+    "category": "Web App",
+    "date": "7 Juni 2026",
+    "readTime": "5 menit baca",
+    "excerpt": "Jika data operasional mulai tersebar di chat, spreadsheet, dan catatan manual, sistem internal bisa membantu proses jadi lebih rapi.",
+    "content": "Dashboard internal mulai terasa penting ketika tim perlu melihat data yang sama, memperbarui status pekerjaan, mengurangi pencatatan ganda, dan membaca laporan tanpa mengumpulkan file manual setiap hari.",
+    "image": "",
+    "published": true,
+    "highlights": [
+      "Data terpusat",
+      "Role user",
+      "Laporan dasar"
+    ],
+    "createdAt": "2026-06-07T00:00:00.000Z",
+    "updatedAt": "2026-06-07T00:00:00.000Z"
+  }
+]
